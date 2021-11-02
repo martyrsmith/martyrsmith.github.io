@@ -21,6 +21,10 @@ jobs:
           key: ${{ runner.OS }}-npm-cache
           restore-keys: |
             ${{ runner.OS }}-npm-cache
+      - name: Checkout submodules
+        uses: srt32/git-actions@v0.0.3
+        with:
+          args: git submodule update --init --recursive
       - name: Install Dependencies
         run: npm install
       - name: Build
@@ -32,3 +36,5 @@ jobs:
           publish_dir: ./docs
           publish_branch: gh-pages  # deploying branch
           cname: dbnservers.net
+
+
