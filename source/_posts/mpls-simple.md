@@ -9,3 +9,8 @@ tags:
 First post talking about network diagrams. 
 
 ![Diagram](mpls-example.drawio.png)
+
+Try again
+
+{% asset_img mpls-example.drawio.png Neat Diagram %}
+
