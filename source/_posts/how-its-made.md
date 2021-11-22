@@ -21,6 +21,7 @@ Below we describe how this website is created and updated.
 * [Adding Images to Hexo Posts with Markdown](https://chrismroberts.com/2020/01/06/using-markdown-in-hexo-to-add-images/)
 
 ## Github
+
 ### Actions
 * [Actions docs](https://docs.github.com/en/actions/quickstart)
 
@@ -73,6 +74,7 @@ jobs:
 * Setup a custom domain and SSL
 
 ## Diagrams.net
+
 ### Create new diagram
 * Authenticate with github.
 * New diagram
@@ -93,19 +95,16 @@ jobs:
 [Cheatsheet](https://enterprise.github.com/downloads/en/markdown-cheatsheet.pdf)
 
 ### Image with link
-#### Syntax
 
+#### Syntax
 ```
  [![image alt text](image url link)](anchor link)
 ```
+
 #### Usage
-
 ```
 [![simple diagram](how-its-made/example.drawio.png)](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=example.drawio#Uhttps%3A%2F%2Fraw.githubusercontent.com%2Fmartyrsmith%2Fmartyrsmith.github.io%2Fhow-its-made%2Fsource%2F_posts%2Fhow-its-made%2Fexample.drawio)
 ```
+
 #### Example
-PNG
-[![simple diagram](how-its-made/example.drawio.png)](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=example.drawio#Uhttps%3A%2F%2Fraw.githubusercontent.com%2Fmartyrsmith%2Fmartyrsmith.github.io%2Fhow-its-made%2Fsource%2F_posts%2Fhow-its-made%2Fexample.drawio)
-
-SVG
 [![simple diagram](how-its-made/example.drawio.svg)](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=example.drawio#Uhttps%3A%2F%2Fraw.githubusercontent.com%2Fmartyrsmith%2Fmartyrsmith.github.io%2Fhow-its-made%2Fsource%2F_posts%2Fhow-its-made%2Fexample.drawio)
