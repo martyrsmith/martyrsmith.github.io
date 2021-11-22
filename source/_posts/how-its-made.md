@@ -3,7 +3,7 @@ title: how-its-made
 date: 2021-11-22 11:20:00
 tags:
 - just_for_fun
-<!-- header_image: /intro/about-bg.jpg -->
+header_image: /intro/index-bg.jpg
 ---
 Below we describe how this website is created and updated.
 
