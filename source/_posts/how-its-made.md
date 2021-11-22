@@ -5,7 +5,7 @@ tags:
 - just_for_fun
 header_image: /intro/index-bg.jpg
 ---
-Below we describe how this website is created and updated.
+Below I describe how this website is created and updated.
 
 
 ## Hexo
