@@ -6,11 +6,8 @@ tags:
 <!-- header_image: /intro/about-bg.jpg -->
 ---
 
-First post talking about network diagrams. 
+First post talking about network diagrams.
 
-![Diagram](mpls-example.drawio.png)
+![Diagram](mpls-simple/mpls-simple.drawio.png)
 
-Try again
-
-{% asset_img mpls-example.drawio.png Neat Diagram %}
-
+Pretty neat?
