@@ -7,3 +7,5 @@ tags:
 ---
 
 First post talking about network diagrams. 
+
+![Diagram](mpls-example.drawio.png)
