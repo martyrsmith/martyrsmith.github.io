@@ -19,25 +19,22 @@
         <meta name="keywords" content="dbn,diamondblade,dbn servers">
     
     <meta name="description" content="">
-    <meta name="description" content="Below I describe how this website is created and updated. HexoSetup Setup Docs  Themes Theme Docs  Markdown image support Hexo-asset-link Adding Images to Hexo Posts with Markdown  GithubActions Actio">
+    <meta name="description" content="For VXLAN items.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="how-its-made">
-<meta property="og:url" content="https://dbnservers.net/2021/11/22/how-its-made/index.html">
+<meta property="og:title" content="DBN">
+<meta property="og:url" content="https://dbnservers.net/2021/11/29/vxlan-simple/readme/index.html">
 <meta property="og:site_name" content="DBN">
-<meta property="og:description" content="Below I describe how this website is created and updated. HexoSetup Setup Docs  Themes Theme Docs  Markdown image support Hexo-asset-link Adding Images to Hexo Posts with Markdown  GithubActions Actio">
+<meta property="og:description" content="For VXLAN items.">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://dbnservers.net/2021/11/22/how-its-made/example.drawio.svg">
-<meta property="article:published_time" content="2021-11-22T11:20:00.000Z">
+<meta property="article:published_time" content="2021-11-29T21:11:59.017Z">
 <meta property="article:modified_time" content="2021-11-29T21:11:59.017Z">
 <meta property="article:author" content="Martin Smith">
-<meta property="article:tag" content="just_for_fun">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://dbnservers.net/2021/11/22/how-its-made/example.drawio.svg">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/assets/favicon.ico">
     
-    <title>how-its-made · DiamondBlade Network</title>
+    <title>DiamondBlade Network</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -262,7 +259,7 @@
                 <a href="/">DBN</a>
             </div>
             <div class="post-title header-element">
-                <a href="#" class="post-name">how-its-made</a>
+                <a href="#" class="post-name"></a>
             </div>
         </div>
     
@@ -302,13 +299,13 @@
     <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/index-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-                how-its-made
+                [Untitled Post]
             <!-- 404 -->
             
         </h1>
@@ -325,23 +322,15 @@
             <div class="post-intros">
                 <!-- 文章页标签  -->
                 
-                    <div class= post-intro-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="just_for_fun">just_for_fun</a>
-    
-</div>
-
-                
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">297</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                        <span>Word count: <span class="post-count word-count">3</span>Reading time: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <!-- 撰写日期 -->
                     <span class="iconfont-archer post-intro-calander">&#xe676;</span>
-                    <span class="post-intro-time">2021/11/22</span>
+                    <span class="post-intro-time">2021/11/29</span>
                     <!-- busuanzi -->
                     
                         <span id="busuanzi_container_page_pv" class="busuanzi-pv">
@@ -496,59 +485,16 @@
             <div class="container container-unloaded">
                 <main class="main post-page">
     <article class="article-entry">
-        <p>Below I describe how this website is created and updated.</p>
-<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><h3 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://hexo.io/docs/setup.html">Setup Docs</a></li>
-</ul>
-<h3 id="Themes"><a href="#Themes" class="headerlink" title="Themes"></a>Themes</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://hexo.io/docs/themes">Theme Docs</a></li>
-</ul>
-<h3 id="Markdown-image-support"><a href="#Markdown-image-support" class="headerlink" title="Markdown image support"></a>Markdown image support</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/liolok/hexo-asset-link">Hexo-asset-link</a></li>
-<li><a target="_blank" rel="noopener" href="https://chrismroberts.com/2020/01/06/using-markdown-in-hexo-to-add-images/">Adding Images to Hexo Posts with Markdown</a></li>
-</ul>
-<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><h3 id="Actions"><a href="#Actions" class="headerlink" title="Actions"></a>Actions</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://docs.github.com/en/actions/quickstart">Actions docs</a></li>
-</ul>
-<h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><p>This automatically builds Hexo site from [main] branch and publishes to [gh-pages] brach.</p>
-<p>The secret [secrets.GITHUB_TOKEN] is provided by default to the all running jobs.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">name: Pages</span><br><span class="line"></span><br><span class="line">on:</span><br><span class="line">  push:</span><br><span class="line">    branches:</span><br><span class="line">      - main  # default branch</span><br><span class="line"></span><br><span class="line">jobs:</span><br><span class="line">  pages:</span><br><span class="line">    runs-on: ubuntu-latest</span><br><span class="line">    steps:</span><br><span class="line">      - uses: actions/checkout@v2</span><br><span class="line">      - name: Use Node.js 12.x</span><br><span class="line">        uses: actions/setup-node@v1</span><br><span class="line">        with:</span><br><span class="line">          node-version: &#x27;12.x&#x27;</span><br><span class="line">      - name: Cache NPM dependencies</span><br><span class="line">        uses: actions/cache@v2</span><br><span class="line">        with:</span><br><span class="line">          path: node_modules</span><br><span class="line">          key: $&#123;&#123; runner.OS &#125;&#125;-npm-cache</span><br><span class="line">          restore-keys: |</span><br><span class="line">            $&#123;&#123; runner.OS &#125;&#125;-npm-cache</span><br><span class="line">        - name: Install Dependencies</span><br><span class="line">        run: npm install</span><br><span class="line">      - name: Build</span><br><span class="line">        run: npm run build</span><br><span class="line">      - name: Deploy</span><br><span class="line">        uses: peaceiris/actions-gh-pages@v3</span><br><span class="line">        with:</span><br><span class="line">          github_token: $&#123;&#123; secrets.GITHUB_TOKEN &#125;&#125;</span><br><span class="line">          publish_dir: ./docs</span><br><span class="line">          publish_branch: gh-pages  # deploying branch</span><br><span class="line">          cname: dbnservers.net</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="Pages"><a href="#Pages" class="headerlink" title="Pages"></a>Pages</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://pages.github.com/">Pages docs</a></li>
-<li>Configure to watch branch [gh-pages] root [/root] folder.</li>
-<li>Setup a custom domain and SSL</li>
-</ul>
-<h2 id="Diagrams-net"><a href="#Diagrams-net" class="headerlink" title="Diagrams.net"></a>Diagrams.net</h2><h3 id="Create-new-diagram"><a href="#Create-new-diagram" class="headerlink" title="Create new diagram"></a>Create new diagram</h3><ul>
-<li>Authenticate with github.</li>
-<li>New diagram</li>
-<li>Select [repo]</li>
-<li>Select [branch]</li>
-<li>Navigate to post folder [source/_posts/how-its-made]</li>
-<li>Name [example.drawio]</li>
-</ul>
-<h3 id="Export-as-SVG"><a href="#Export-as-SVG" class="headerlink" title="Export as SVG"></a>Export as SVG</h3><ul>
-<li>File, Export as, SVG</li>
-<li>Select [repo]</li>
-<li>Select [branch]</li>
-<li>Navigate to post folder [source/_posts/how-its-made]</li>
-<li>Name [example.drawio.svg]</li>
-</ul>
-<h2 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h2><p><a target="_blank" rel="noopener" href="https://enterprise.github.com/downloads/en/markdown-cheatsheet.pdf">Cheatsheet</a></p>
-<h3 id="Image-with-link"><a href="#Image-with-link" class="headerlink" title="Image with link"></a>Image with link</h3><h4 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[![image alt text](image url link)](anchor link)</span><br></pre></td></tr></table></figure>
-
-<h4 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[![simple diagram](/2021/11/22/how-its-made/example.drawio.png)](https://viewer.diagrams.net/?tags=%7B%7D&amp;highlight=0000ff&amp;edit=_blank&amp;layers=1&amp;nav=1&amp;title=example.drawio#Uhttps%3A%2F%2Fraw.githubusercontent.com%2Fmartyrsmith%2Fmartyrsmith.github.io%2Fhow-its-made%2Fsource%2F_posts%2Fhow-its-made%2Fexample.drawio)</span><br></pre></td></tr></table></figure>
-
-<h4 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h4><p><a target="_blank" rel="noopener" href="https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=example.drawio#Uhttps%3A%2F%2Fraw.githubusercontent.com%2Fmartyrsmith%2Fmartyrsmith.github.io%2Fhow-its-made%2Fsource%2F_posts%2Fhow-its-made%2Fexample.drawio"><img src="/2021/11/22/how-its-made/example.drawio.svg" alt="simple diagram"></a></p>
+        <p>For VXLAN items. </p>
 
     </article>
     <!-- license -->
     
         <div class="license-wrapper">
             <p>Author：<a href="https://dbnservers.net">Martin Smith</a>
-            <p>Link：<a href="https://dbnservers.net/2021/11/22/how-its-made/">https://dbnservers.net/2021/11/22/how-its-made/</a>
-            <p>Publish date：<a href="https://dbnservers.net/2021/11/22/how-its-made/">November 22nd 2021, 11:20:00 am</a>
-            <p>Update date：<a href="https://dbnservers.net/2021/11/22/how-its-made/">November 29th 2021, 9:11:59 pm</a>
+            <p>Link：<a href="https://dbnservers.net/2021/11/29/vxlan-simple/readme/">https://dbnservers.net/2021/11/29/vxlan-simple/readme/</a>
+            <p>Publish date：<a href="https://dbnservers.net/2021/11/29/vxlan-simple/readme/">November 29th 2021, 9:11:59 pm</a>
+            <p>Update date：<a href="https://dbnservers.net/2021/11/29/vxlan-simple/readme/">November 29th 2021, 9:11:59 pm</a>
             <p>License：creative commons<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/"> 4.0 </a></p>
         </div>
     
@@ -556,17 +502,12 @@
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2021/11/29/vxlan-simple/readme/" title="">
-                    <div class="nextTitle">[Untitled Post]</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2021/11/22/mpls-simple/" title="mpls-simple">
-                    <div class="prevTitle">mpls-simple</div>
+                <a href="/2021/11/22/how-its-made/" title="how-its-made">
+                    <div class="prevTitle">how-its-made</div>
                 </a>
             
         </li>
@@ -697,7 +638,7 @@
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo"><span class="toc-number">1.</span> <span class="toc-text">Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Setup"><span class="toc-number">1.1.</span> <span class="toc-text">Setup</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Themes"><span class="toc-number">1.2.</span> <span class="toc-text">Themes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Markdown-image-support"><span class="toc-number">1.3.</span> <span class="toc-text">Markdown image support</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Github"><span class="toc-number">2.</span> <span class="toc-text">Github</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Actions"><span class="toc-number">2.1.</span> <span class="toc-text">Actions</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Example"><span class="toc-number">2.1.1.</span> <span class="toc-text">Example</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pages"><span class="toc-number">2.2.</span> <span class="toc-text">Pages</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Diagrams-net"><span class="toc-number">3.</span> <span class="toc-text">Diagrams.net</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-new-diagram"><span class="toc-number">3.1.</span> <span class="toc-text">Create new diagram</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Export-as-SVG"><span class="toc-number">3.2.</span> <span class="toc-text">Export as SVG</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Markdown"><span class="toc-number">4.</span> <span class="toc-text">Markdown</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Image-with-link"><span class="toc-number">4.1.</span> <span class="toc-text">Image with link</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Syntax"><span class="toc-number">4.1.1.</span> <span class="toc-text">Syntax</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Usage"><span class="toc-number">4.1.2.</span> <span class="toc-text">Usage</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Example-1"><span class="toc-number">4.1.3.</span> <span class="toc-text">Example</span></a></li></ol></li></ol></li></ol>
+                
             </div>
         
         <!-- sidebar -->
