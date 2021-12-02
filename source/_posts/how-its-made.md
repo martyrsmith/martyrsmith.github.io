@@ -1,9 +1,11 @@
 ---
-title: how-its-made
+title: How it's made
 date: 2021-11-22 11:20:00
 tags:
 - just_for_fun
 header_image: /intro/index-bg.jpg
+categories:
+  - blog
 ---
 Below I describe how this website is created and updated.
 
