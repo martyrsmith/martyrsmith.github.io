@@ -78,7 +78,7 @@ jobs:
 ## Diagrams.net
 
 ### Create new diagram
-* Authenticate with github.
+* Authenticate with GitHub.
 * New diagram
 * Select [repo]
 * Select [branch]
