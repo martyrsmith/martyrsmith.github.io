@@ -19,18 +19,27 @@
         <meta name="keywords" content="dbn,diamondblade,dbn servers">
     
     <meta name="description" content="">
-    <meta property="og:type" content="website">
-<meta property="og:title" content="DBN">
-<meta property="og:url" content="https://dbnservers.net/tags/bgp/index.html">
+    <meta name="description" content="Below is an attempt to simplify understanding of the various MP-BGP types. We will discuss various acronyms, address families and modifiers. Definitions   Acronym Phrase Usage    VRF Virtual routing a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MP-BGP Address Families">
+<meta property="og:url" content="https://dbnservers.net/network/mp-bgp-address-families/index.html">
 <meta property="og:site_name" content="DBN">
+<meta property="og:description" content="Below is an attempt to simplify understanding of the various MP-BGP types. We will discuss various acronyms, address families and modifiers. Definitions   Acronym Phrase Usage    VRF Virtual routing a">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://dbnservers.net/network/mp-bgp-address-families/mpbgp-diagrams-unicast-ipv4.drawio.svg">
+<meta property="og:image" content="https://dbnservers.net/network/mp-bgp-address-families/mpbgp-visual.drawio.svg">
+<meta property="article:published_time" content="2021-12-05T19:00:00.000Z">
+<meta property="article:modified_time" content="2021-12-06T05:02:38.425Z">
 <meta property="article:author" content="Martin">
+<meta property="article:tag" content="bgp">
+<meta property="article:tag" content="mpbgp">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dbnservers.net/network/mp-bgp-address-families/mpbgp-diagrams-unicast-ipv4.drawio.svg">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/assets/favicon.ico">
     
-    <title>DiamondBlade Network</title>
+    <title>MP-BGP Address Families · DiamondBlade Network</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -217,6 +226,8 @@
         }
     </script>
     
+        <body class="post-body">
+    
         <!-- header -->
         <header class="header header-mobile">
     <!-- top read progress line -->
@@ -246,6 +257,17 @@
     </div>
     <!-- toggle banner for post layout -->
     
+        
+            <div class="banner">
+        
+            <div class="blog-title header-element">
+                <a href="/">DBN</a>
+            </div>
+            <div class="post-title header-element">
+                <a href="#" class="post-name">MP-BGP Address Families</a>
+            </div>
+        </div>
+    
 </header>
 
         <!-- fixed footer -->
@@ -272,24 +294,81 @@
 
 
 
+    height:50vh;
+
 ">
     
     <!-- 主页  -->
+    
+        
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/index-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+                MP-BGP Address Families
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+                
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页 meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="bgp">bgp</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="mpbgp">mpbgp</a>
+    
+</div>
+
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count word-count">525</span>Reading time: <span class="post-count reading-time">3 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <!-- 撰写日期 -->
+                    <span class="iconfont-archer post-intro-calander">&#xe676;</span>
+                    <span class="post-intro-time">2021/12/05</span>
+                    <!-- busuanzi -->
+                    
+                        <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                            <span class="iconfont-archer post-intro-busuanzi">&#xe602;</span>
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    
+                    <!-- 文章分享 -->
+                    <span class="share-wrapper">
+                        <span class="iconfont-archer share-icon">&#xe71d;</span>
+                        <span class="share-text">Share</span>
+                        <ul class="share-list">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -419,120 +498,263 @@
 
             <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
             <div class="container container-unloaded">
-                <main class="main index-page">
+                <main class="main post-page">
+    <article class="article-entry">
+        <p>Below is an attempt to simplify understanding of the various MP-BGP types. We will discuss various acronyms, address families and modifiers.</p>
+<h2 id="Definitions"><a href="#Definitions" class="headerlink" title="Definitions"></a>Definitions</h2><table>
+<thead>
+<tr>
+<th>Acronym</th>
+<th>Phrase</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Virtual_routing_and_forwarding">VRF</a></td>
+<td>Virtual routing and forwarding</td>
+<td>Multiple virtual routers with unique address space</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Multiprotocol_BGP">MP-BGP</a></td>
+<td>Multiprotocol Extensions for BGP</td>
+<td>Allows for different types of address families to be distributed.</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.iana.org/assignments/address-family-numbers/address-family-numbers.xhtml">AFI</a></td>
+<td>Address Family Numbers</td>
+<td>?</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.iana.org/assignments/safi-namespace/safi-namespace.xhtml">SAFI</a></td>
+<td>Subsequent Address Family Identifiers</td>
+<td>?</td>
+</tr>
+<tr>
+<td>NLRI</td>
+<td>Network Layer Reachability Information</td>
+<td>Destination information. For example, IP + mask.</td>
+</tr>
+<tr>
+<td>RD</td>
+<td>Route descriptor</td>
+<td>?</td>
+</tr>
+<tr>
+<td>RT</td>
+<td>Route target</td>
+<td>?</td>
+</tr>
+</tbody></table>
+<h2 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h2><h3 id="Address-family"><a href="#Address-family" class="headerlink" title="Address family"></a>Address family</h3><table>
+<thead>
+<tr>
+<th>Number</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>IPv4</td>
+</tr>
+<tr>
+<td>2</td>
+<td>IPv6</td>
+</tr>
+<tr>
+<td>11</td>
+<td>IPX</td>
+</tr>
+<tr>
+<td>12</td>
+<td>AppleTalk</td>
+</tr>
+<tr>
+<td>25</td>
+<td>L2VPN</td>
+</tr>
+<tr>
+<td>?</td>
+<td>Link-State</td>
+</tr>
+<tr>
+<td>?</td>
+<td>NSAP</td>
+</tr>
+<tr>
+<td>?</td>
+<td>RTFilter</td>
+</tr>
+<tr>
+<td>?</td>
+<td>VPNv4</td>
+</tr>
+<tr>
+<td>?</td>
+<td>VPNv6</td>
+</tr>
+</tbody></table>
+<p>Cisco IOS:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(config-router)#address-family ?</span><br><span class="line">  ipv4        Address family</span><br><span class="line">  ipv6        Address family</span><br><span class="line">  l2vpn       Address family</span><br><span class="line">  link-state  Address family</span><br><span class="line">  nsap        Address family</span><br><span class="line">  rtfilter    Address family</span><br><span class="line">  vpnv4       Address family</span><br><span class="line">  vpnv6       Address family</span><br></pre></td></tr></table></figure>
+
+<h3 id="Address-Family-Modifier"><a href="#Address-Family-Modifier" class="headerlink" title="Address Family Modifier"></a>Address Family Modifier</h3><table>
+<thead>
+<tr>
+<th>Number</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Unicast (U)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Multicast</td>
+</tr>
+<tr>
+<td>4</td>
+<td>MPLS Labels (L)</td>
+</tr>
+<tr>
+<td>65</td>
+<td>VPLS</td>
+</tr>
+<tr>
+<td>70</td>
+<td>EVPNs</td>
+</tr>
+<tr>
+<td>128</td>
+<td>MPLS VPN (L3VPN)</td>
+</tr>
+<tr>
+<td>129</td>
+<td>Multicast VPN</td>
+</tr>
+</tbody></table>
+<p>Cisco IPv4:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(config-router)#address-family ipv4 ?</span><br><span class="line">  flowspec   Address Family modifier</span><br><span class="line">  mdt        Address Family modifier</span><br><span class="line">  multicast  Address Family modifier</span><br><span class="line">  mvpn       Address Family modifier</span><br><span class="line">  unicast    Address Family modifier</span><br><span class="line">  vrf        Specify parameters for a VPN Routing/Forwarding instance</span><br></pre></td></tr></table></figure>
+
+<p>Cisco L2VPN:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(config-router)#address-family l2vpn ?</span><br><span class="line">  evpn  Address Family modifier</span><br><span class="line">  vpls  Address Family modifier</span><br></pre></td></tr></table></figure>
+
+<p>Cisco VPNv4:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(config-router)#address-family vpnv4 ?</span><br><span class="line">  flowspec   Address Family modifier</span><br><span class="line">  multicast  Address Family modifier</span><br><span class="line">  unicast    Address Family Modifier</span><br></pre></td></tr></table></figure>
+
+<h2 id="IP-Unicast-Family"><a href="#IP-Unicast-Family" class="headerlink" title="IP Unicast Family"></a>IP Unicast Family</h2><p>Basic internet routing. Interchangeable with BGP-4.</p>
+<table>
+<thead>
+<tr>
+<th>AFI</th>
+<th>SAFI</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1 (IPv4)</td>
+<td>1 (Unicast)</td>
+<td>IPv4 Unicast</td>
+</tr>
+<tr>
+<td>2 (IPv6)</td>
+<td>1 (Unicast)</td>
+<td>IPv4 Unicast</td>
+</tr>
+</tbody></table>
+<p>Topology Example:</p>
+<p><img src="/network/mp-bgp-address-families/mpbgp-diagrams-unicast-ipv4.drawio.svg" alt="unicast-ipv4"></p>
+<p>Cisco Configuration Example:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">r1#</span><br><span class="line">router bgp 100</span><br><span class="line"> neighbor 192.168.12.2 remote-as 100</span><br><span class="line"> !</span><br><span class="line"> address-family ipv4</span><br><span class="line">  network 1.1.1.1 mask 255.255.255.255</span><br><span class="line">  neighbor 192.168.12.2 activate</span><br><span class="line"> exit-address-family</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#r2</span><br><span class="line"> router bgp 100</span><br><span class="line">  neighbor 192.168.12.1 remote-as 100</span><br><span class="line">  !</span><br><span class="line">  address-family ipv4</span><br><span class="line">   network 2.2.2.2 mask 255.255.255.255</span><br><span class="line">   neighbor 192.168.12.1 activate</span><br><span class="line">  exit-address-family</span><br></pre></td></tr></table></figure>
+
+<p>Packet Capture:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Frame 5: 110 bytes on wire (880 bits), 110 bytes captured (880 bits)</span><br><span class="line">Ethernet II, Src: RealtekU_19:2e:c1 (52:54:00:19:2e:c1), Dst: RealtekU_1f:39:19 (52:54:00:1f:39:19)</span><br><span class="line">Internet Protocol Version 4, Src: 192.168.12.1, Dst: 192.168.12.2</span><br><span class="line">Transmission Control Protocol, Src Port: 179, Dst Port: 53401, Seq: 20, Ack: 20, Len: 56</span><br><span class="line">Border Gateway Protocol - UPDATE Message</span><br><span class="line">    Marker: ffffffffffffffffffffffffffffffff</span><br><span class="line">    Length: 56</span><br><span class="line">    Type: UPDATE Message (2)</span><br><span class="line">    Withdrawn Routes Length: 0</span><br><span class="line">    Total Path Attribute Length: 28</span><br><span class="line">    Path attributes</span><br><span class="line">        Path Attribute - ORIGIN: IGP</span><br><span class="line">        Path Attribute - AS_PATH: empty</span><br><span class="line">        Path Attribute - NEXT_HOP: 192.168.12.1</span><br><span class="line">        Path Attribute - MULTI_EXIT_DISC: 0</span><br><span class="line">        Path Attribute - LOCAL_PREF: 100</span><br><span class="line">    Network Layer Reachability Information (NLRI)</span><br><span class="line">        1.1.1.1/32</span><br><span class="line">            NLRI prefix length: 32</span><br><span class="line">            NLRI prefix: 1.1.1.1</span><br></pre></td></tr></table></figure>
+
+<h2 id="Visual-Combinations"><a href="#Visual-Combinations" class="headerlink" title="Visual Combinations"></a>Visual Combinations</h2><p><img src="/network/mp-bgp-address-families/mpbgp-visual.drawio.svg" alt="visual-mpbgp"></p>
+<h2 id="Sources"><a href="#Sources" class="headerlink" title="Sources"></a>Sources</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.juniper.net/documentation/en_US/junose15.1/topics/concept/mbgp-address-families-overview.html">Juniper - Understanding MBGP Address Families</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.iana.org/assignments/address-family-numbers/address-family-numbers.xhtml">IANA - Address Family Numbers</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.iana.org/assignments/safi-namespace/safi-namespace.xhtml">IANA - Subsequent Address Family Identifiers (SAFI) Parameters</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.opendaylight.org/projects/bgpcep/en/latest/bgp/index.html#bgp-user-guide">OpenDaylight - BGP User Guide</a></li>
+</ul>
+<hr>
+<h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO:"></a>TODO:</h2><ul>
+<li><input checked="" disabled="" type="checkbox"> Unicast IPv4</li>
+<li><input disabled="" type="checkbox"> Multicast IPv4</li>
+<li><input disabled="" type="checkbox"> VPN IPv4</li>
+<li><input disabled="" type="checkbox"> Unicast IPv6</li>
+<li><input disabled="" type="checkbox"> Multicast IPv6</li>
+<li><input disabled="" type="checkbox"> VPN IPv6</li>
+<li><input disabled="" type="checkbox"> L2VPN</li>
+<li><input disabled="" type="checkbox"> Route-target</li>
+<li><input disabled="" type="checkbox"> VPLS</li>
+<li><input disabled="" type="checkbox"> VPWS</li>
+</ul>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> IP Unicast Family</li>
+<li><input disabled="" type="checkbox"> IP Labeled Unicast Family</li>
+<li><input disabled="" type="checkbox"> IP L3VPN Family</li>
+<li><input disabled="" type="checkbox"> Link-State Family</li>
+<li><input disabled="" type="checkbox"> Flow Specification Family</li>
+<li><input disabled="" type="checkbox"> MCAST-VPN Family</li>
+<li><input disabled="" type="checkbox"> EVPN Family</li>
+<li><input disabled="" type="checkbox"> Route Target Constrain Family</li>
+</ul>
+
+    </article>
+    <!-- license -->
     
-        
-        
-        
-        
+        <div class="license-wrapper">
+            <p>Author：<a href="https://dbnservers.net">Martin</a>
+            <p>Link：<a href="https://dbnservers.net/network/mp-bgp-address-families/">https://dbnservers.net/network/mp-bgp-address-families/</a>
+            <p>Publish date：<a href="https://dbnservers.net/network/mp-bgp-address-families/">December 5th 2021, 7:00:00 pm</a>
+            <p>Update date：<a href="https://dbnservers.net/network/mp-bgp-address-families/">December 6th 2021, 5:02:38 am</a>
+            <p>License：creative commons<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/"> 4.0 </a></p>
+        </div>
+    
+    <!-- paginator -->
+    <ul class="post-paginator">
+        <li class="next">
             
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/network/mp-bgp-address-families/">
-                
-                <span class="abstract-title-text">MP-BGP Address Families</span>
-            </a>
-            <div class="abstract-content">
-                Below is an attempt to simplify understanding of the various MP-BGP types. We will discuss various acronyms, address families and modifiers.
-Definitions
-
-
-Acronym
-Phrase
-Usage
-
-
-
-VRF
-Virtual routing and forwarding
-Multiple virtual routers with unique address space
-
-
-MP-BGP
-Multiprotocol Extension...
-            </div>
-            <!-- read more -->
+        </li>
+        <li class="previous">
             
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2021/12/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/12/05</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="bgp">bgp</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="mpbgp">mpbgp</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/network/cisco-devnet-virtual-lab/" title="Cisco Devnet Virtual Lab">
+                    <div class="prevTitle">Cisco Devnet Virtual Lab</div>
+                </a>
             
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/network/bgp-with-frr/">
-                
-                <span class="abstract-title-text">BGP with FRR</span>
-            </a>
-            <div class="abstract-content">
-                Below is an example of setting up BGP (iBGP and eBGP) using Ubuntu and FRR.
-LinksThis post was inspired by Lab 10 BGP Route Reflection
-Versions
+        </li>
+    </ul>
+    <!-- comment -->
+    
+        <div class="post-comment">
+            <!-- 来必力 City 版安装代码 -->
 
 
-Software
-Version
-
-
-
-Ubuntu
-20.04 (focal)
-
-
-FRR
-7.5.1
-
-
-Diagram
-SetupThis lab requires internet access to download FRR packages. As such, each device’s ...
-            </div>
-            <!-- read more -->
             
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2021/12/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/12/02</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="frr">frr</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="bgp">bgp</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="ubuntu">ubuntu</a>
-    
-</div>
 
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
+            
+
+            
+
+            <!-- utteranc评论 -->
+
+
+            <!-- partial('_partial/comment/changyan') -->
+            <!--PC版-->
+
+
+            
+            
+
+        </div>
     
-    <!-- paginator  -->
+    <!-- timeliness note -->
+    <!-- idea from: https://hexo.fluid-dev.com/posts/hexo-injector/#%E6%96%87%E7%AB%A0%E6%97%B6%E6%95%88%E6%80%A7%E6%8F%90%E7%A4%BA -->
+    
+    <!-- Mathjax -->
     
 </main>
 
@@ -620,6 +842,23 @@ SetupThis lab requires internet access to download FRR packages. As such, each d
 
         </div>
         <!-- toc -->
+        
+            <div class="toc-wrapper toc-wrapper-loding" style=
+
+
+
+
+
+
+
+    top:50vh;
+
+>
+                <div class="toc-catalog">
+                    <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+                </div>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Definitions"><span class="toc-number">1.</span> <span class="toc-text">Definitions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Table"><span class="toc-number">2.</span> <span class="toc-text">Table</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Address-family"><span class="toc-number">2.1.</span> <span class="toc-text">Address family</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Address-Family-Modifier"><span class="toc-number">2.2.</span> <span class="toc-text">Address Family Modifier</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IP-Unicast-Family"><span class="toc-number">3.</span> <span class="toc-text">IP Unicast Family</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Visual-Combinations"><span class="toc-number">4.</span> <span class="toc-text">Visual Combinations</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sources"><span class="toc-number">5.</span> <span class="toc-text">Sources</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TODO"><span class="toc-number">6.</span> <span class="toc-text">TODO:</span></a></li></ol>
+            </div>
         
         <!-- sidebar -->
         <div class="sidebar sidebar-hide">
@@ -833,6 +1072,8 @@ SetupThis lab requires internet access to download FRR packages. As such, each d
         <!-- CNZZ -->
         
         <!-- async load share.js -->
+        
+            <script src="/scripts/share.js?v=20210823" async></script>
         
         <!-- mermaid -->
         
