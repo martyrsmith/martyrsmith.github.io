@@ -28,9 +28,10 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://dbnservers.net/network/mp-bgp-address-families/mpbgp-diagrams-unicast-ipv4.drawio.svg">
 <meta property="og:image" content="https://dbnservers.net/network/mp-bgp-address-families/mpbgp-diagrams-unicast-vpn.drawio.svg">
+<meta property="og:image" content="https://dbnservers.net/network/mp-bgp-address-families/mpbgp-diagrams-vxlan-bgp-evpn.drawio.svg">
 <meta property="og:image" content="https://dbnservers.net/network/mp-bgp-address-families/mpbgp-visual.drawio.svg">
 <meta property="article:published_time" content="2021-12-05T19:00:00.000Z">
-<meta property="article:modified_time" content="2021-12-07T04:31:25.790Z">
+<meta property="article:modified_time" content="2021-12-07T05:37:21.484Z">
 <meta property="article:author" content="Martin">
 <meta property="article:tag" content="bgp">
 <meta property="article:tag" content="mpbgp">
@@ -340,7 +341,7 @@
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">845</span>Reading time: <span class="post-count reading-time">5 min</span></span>
+                        <span>Word count: <span class="post-count word-count">929</span>Reading time: <span class="post-count reading-time">5 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -573,26 +574,6 @@
 <td>25</td>
 <td>L2VPN</td>
 </tr>
-<tr>
-<td>?</td>
-<td>Link-State</td>
-</tr>
-<tr>
-<td>?</td>
-<td>NSAP</td>
-</tr>
-<tr>
-<td>?</td>
-<td>RTFilter</td>
-</tr>
-<tr>
-<td>?</td>
-<td>VPNv4</td>
-</tr>
-<tr>
-<td>?</td>
-<td>VPNv6</td>
-</tr>
 </tbody></table>
 <p>Cisco IOS:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(config-router)#address-family ?</span><br><span class="line">  ipv4        Address family</span><br><span class="line">  ipv6        Address family</span><br><span class="line">  l2vpn       Address family</span><br><span class="line">  link-state  Address family</span><br><span class="line">  nsap        Address family</span><br><span class="line">  rtfilter    Address family</span><br><span class="line">  vpnv4       Address family</span><br><span class="line">  vpnv6       Address family</span><br></pre></td></tr></table></figure>
@@ -622,11 +603,11 @@
 </tr>
 <tr>
 <td>70</td>
-<td>EVPNs</td>
+<td>EVPN</td>
 </tr>
 <tr>
 <td>128</td>
-<td>MPLS VPN (L3VPN)</td>
+<td>MPLS VPN (L3VPN / VPN)</td>
 </tr>
 <tr>
 <td>129</td>
@@ -694,12 +675,12 @@
 <tbody><tr>
 <td>1 (IPv4)</td>
 <td>128 (Labeled VPN Unicast)</td>
-<td>IPv4 L3VPN Unicast</td>
+<td>IPv4 L3VPN Unicast (VPNv4)</td>
 </tr>
 <tr>
 <td>2 (IPv6)</td>
 <td>128 (Labeled VPN Unicast)</td>
-<td>IPv4 L3VPN Unicast</td>
+<td>IPv4 L3VPN Unicast (VPNv6)</td>
 </tr>
 <tr>
 <td>1 (IPv4)</td>
@@ -722,7 +703,33 @@
 <p>Packet Capture:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">Border Gateway Protocol - UPDATE Message</span><br><span class="line">    Marker: ffffffffffffffffffffffffffffffff</span><br><span class="line">    Length: 91</span><br><span class="line">    Type: UPDATE Message (2)</span><br><span class="line">    Withdrawn Routes Length: 0</span><br><span class="line">    Total Path Attribute Length: 68</span><br><span class="line">    Path attributes</span><br><span class="line">        Path Attribute - MP_REACH_NLRI</span><br><span class="line">            Flags: 0x80, Optional, Non-transitive, Complete</span><br><span class="line">            Type Code: MP_REACH_NLRI (14)</span><br><span class="line">            Length: 33</span><br><span class="line">            Address family identifier (AFI): IPv4 (1)</span><br><span class="line">            Subsequent address family identifier (SAFI): Labeled VPN Unicast (128)</span><br><span class="line">            Next hop:  RD=0:0 IPv4=192.168.12.1</span><br><span class="line">            Number of Subnetwork points of attachment (SNPA): 0</span><br><span class="line">            Network Layer Reachability Information (NLRI)</span><br><span class="line">                BGP Prefix</span><br><span class="line">                    Prefix Length: 120</span><br><span class="line">                    Label Stack: 16 (bottom)</span><br><span class="line">                    Route Distinguisher: 100:1</span><br><span class="line">                    MP Reach NLRI IPv4 prefix: 11.11.11.11</span><br><span class="line">        Path Attribute - ORIGIN: IGP</span><br><span class="line">        Path Attribute - AS_PATH: empty</span><br><span class="line">        Path Attribute - MULTI_EXIT_DISC: 0</span><br><span class="line">        Path Attribute - LOCAL_PREF: 100</span><br><span class="line">        Path Attribute - EXTENDED_COMMUNITIES</span><br><span class="line">            Flags: 0xc0, Optional, Transitive, Complete</span><br><span class="line">            Type Code: EXTENDED_COMMUNITIES (16)</span><br><span class="line">            Length: 8</span><br><span class="line">            Carried extended communities: (1 community)</span><br><span class="line">                Route Target: 100:1 [Transitive 2-Octet AS-Specific]</span><br><span class="line">                    Type: Transitive 2-Octet AS-Specific (0x00)</span><br><span class="line">                    Subtype (AS2): Route Target (0x02)</span><br><span class="line">                    2-Octet AS: 100</span><br><span class="line">                    4-Octet AN: 1</span><br></pre></td></tr></table></figure>
 
-<h2 id="IP-labeled-Unicast-Family"><a href="#IP-labeled-Unicast-Family" class="headerlink" title="IP labeled Unicast Family"></a>IP labeled Unicast Family</h2><p>BGP-LU used to distribute a MPLS label mapped to a route. Not available on IOSv image.</p>
+<h2 id="EVPN-Family"><a href="#EVPN-Family" class="headerlink" title="EVPN Family"></a>EVPN Family</h2><p>MPLS-Based Ethernet VPN (BGP EVPN) can provide L2VPN services such as data-center interconnection (DCI). This advertises MAC / IP over a MPLS network. Designed as an alternative for VPLS.</p>
+<p>IP tunneling such as Virtual Extensible LAN protocol (VXLAN) can provide L2 and L3 overlay networks with EVPN. (VXLAN BGP EVPN)</p>
+<table>
+<thead>
+<tr>
+<th>AFI</th>
+<th>SAFI</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>25 (L2VPN)</td>
+<td>70 (EVPN)</td>
+<td>VPN EVPN BGP</td>
+</tr>
+</tbody></table>
+<p>Topology Example:</p>
+<p><img src="/network/mp-bgp-address-families/mpbgp-diagrams-vxlan-bgp-evpn.drawio.svg" alt="unicast-vpn"></p>
+<p>Cisco Configuration Example:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#r1</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#r2</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Packet Capture:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Border Gateway Protocol - UPDATE Message</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="IP-Labeled-Unicast-Family"><a href="#IP-Labeled-Unicast-Family" class="headerlink" title="IP Labeled Unicast Family"></a>IP Labeled Unicast Family</h2><p>BGP-LU used to distribute a MPLS label mapped to a route. Not available on IOSv image.</p>
 <table>
 <thead>
 <tr>
@@ -738,7 +745,7 @@
 </tr>
 <tr>
 <td>2 (IPv6)</td>
-<td>4 (Labeled Unicast))</td>
+<td>4 (Labeled Unicast)</td>
 <td>IPv6 Labeled Unicast</td>
 </tr>
 </tbody></table>
@@ -751,6 +758,7 @@
 <li><a target="_blank" rel="noopener" href="https://www.iana.org/assignments/address-family-numbers/address-family-numbers.xhtml">IANA - Address Family Numbers</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.iana.org/assignments/safi-namespace/safi-namespace.xhtml">IANA - Subsequent Address Family Identifiers (SAFI) Parameters</a></li>
 <li><a target="_blank" rel="noopener" href="https://docs.opendaylight.org/projects/bgpcep/en/latest/bgp/index.html#bgp-user-guide">OpenDaylight - BGP User Guide</a></li>
+<li><a target="_blank" rel="noopener" href="https://indeni.com/blog/vxlan-with-mp-bgp-evpn-control-plane/">Indeni - VXLAN with MP-BGP EVPN control plane</a></li>
 </ul>
 <hr>
 <h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO:"></a>TODO:</h2><ul>
@@ -762,8 +770,7 @@
 <li><input disabled="" type="checkbox"> VPN IPv6</li>
 <li><input disabled="" type="checkbox"> L2VPN</li>
 <li><input disabled="" type="checkbox"> Route-target</li>
-<li><input disabled="" type="checkbox"> VPLS</li>
-<li><input disabled="" type="checkbox"> VPWS</li>
+<li><input disabled="" type="checkbox"> VPLS / VPWS</li>
 </ul>
 <ul>
 <li><input checked="" disabled="" type="checkbox"> IP Unicast Family</li>
@@ -774,6 +781,7 @@
 <li><input disabled="" type="checkbox"> MCAST-VPN Family</li>
 <li><input disabled="" type="checkbox"> EVPN Family</li>
 <li><input disabled="" type="checkbox"> Route Target Constrain Family</li>
+<li><input disabled="" type="checkbox"> VPLS ?</li>
 </ul>
 
     </article>
@@ -783,13 +791,18 @@
             <p>Author：<a href="https://dbnservers.net">Martin</a>
             <p>Link：<a href="https://dbnservers.net/network/mp-bgp-address-families/">https://dbnservers.net/network/mp-bgp-address-families/</a>
             <p>Publish date：<a href="https://dbnservers.net/network/mp-bgp-address-families/">December 5th 2021, 7:00:00 pm</a>
-            <p>Update date：<a href="https://dbnservers.net/network/mp-bgp-address-families/">December 7th 2021, 4:31:25 am</a>
+            <p>Update date：<a href="https://dbnservers.net/network/mp-bgp-address-families/">December 7th 2021, 5:37:21 am</a>
             <p>License：creative commons<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/"> 4.0 </a></p>
         </div>
     
     <!-- paginator -->
     <ul class="post-paginator">
         <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href="/uncategorized/" title="">
+                    <div class="nextTitle">[Untitled Post]</div>
+                </a>
             
         </li>
         <li class="previous">
@@ -931,7 +944,7 @@
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Definitions"><span class="toc-number">1.</span> <span class="toc-text">Definitions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Table"><span class="toc-number">2.</span> <span class="toc-text">Table</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Address-family"><span class="toc-number">2.1.</span> <span class="toc-text">Address family</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Address-Family-Modifier"><span class="toc-number">2.2.</span> <span class="toc-text">Address Family Modifier</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IP-Unicast-Family"><span class="toc-number">3.</span> <span class="toc-text">IP Unicast Family</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IP-L3VPN-Family"><span class="toc-number">4.</span> <span class="toc-text">IP L3VPN Family</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IP-labeled-Unicast-Family"><span class="toc-number">5.</span> <span class="toc-text">IP labeled Unicast Family</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Visual-Combinations"><span class="toc-number">6.</span> <span class="toc-text">Visual Combinations</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sources"><span class="toc-number">7.</span> <span class="toc-text">Sources</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TODO"><span class="toc-number">8.</span> <span class="toc-text">TODO:</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Definitions"><span class="toc-number">1.</span> <span class="toc-text">Definitions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Table"><span class="toc-number">2.</span> <span class="toc-text">Table</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Address-family"><span class="toc-number">2.1.</span> <span class="toc-text">Address family</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Address-Family-Modifier"><span class="toc-number">2.2.</span> <span class="toc-text">Address Family Modifier</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IP-Unicast-Family"><span class="toc-number">3.</span> <span class="toc-text">IP Unicast Family</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IP-L3VPN-Family"><span class="toc-number">4.</span> <span class="toc-text">IP L3VPN Family</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EVPN-Family"><span class="toc-number">5.</span> <span class="toc-text">EVPN Family</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IP-Labeled-Unicast-Family"><span class="toc-number">6.</span> <span class="toc-text">IP Labeled Unicast Family</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Visual-Combinations"><span class="toc-number">7.</span> <span class="toc-text">Visual Combinations</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sources"><span class="toc-number">8.</span> <span class="toc-text">Sources</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TODO"><span class="toc-number">9.</span> <span class="toc-text">TODO:</span></a></li></ol>
             </div>
         
         <!-- sidebar -->
@@ -993,7 +1006,18 @@
         
         
         
+        
+        
+        
+        
+        
     
+        
+        
+        
+        
+        
+        
         
         
         
@@ -1022,7 +1046,7 @@
     
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 6
+        Total : 7
         </div>
         <!-- search  -->
         
@@ -1036,6 +1060,12 @@
             <div class="archive-year"> 2021 </div>
             <ul class="year-list">
             
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/07</span>
+            <a class="archive-post-title" href="/uncategorized/">[Untitled Post]</a>
+        </li>
+    
         
         <li class="archive-post-item">
             <span class="archive-post-date">12/05</span>
