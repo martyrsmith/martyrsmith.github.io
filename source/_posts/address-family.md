@@ -32,11 +32,7 @@ Number | Description
 11 | IPX
 12 | AppleTalk
 25 | L2VPN
-? | Link-State
-? | NSAP
-? | RTFilter
-? | VPNv4
-? | VPNv6
+
 
 Cisco IOS:
 ```
@@ -59,8 +55,8 @@ Number | Description
 2 | Multicast
 4 | MPLS Labels (L)
 65 | VPLS
-70 | EVPNs
-128 | MPLS VPN (L3VPN)
+70 | EVPN
+128 | MPLS VPN (L3VPN / VPN)
 129 | Multicast VPN
 
 Cisco IPv4:
@@ -153,8 +149,8 @@ BGP L3VPN is used to exchange VPN (VRF) routes. Also called VPNv4 and VPNv6.
 
 AFI | SAFI | Name
 --- | --- | ---
-1 (IPv4) | 128 (Labeled VPN Unicast) | IPv4 L3VPN Unicast
-2 (IPv6) | 128 (Labeled VPN Unicast) | IPv4 L3VPN Unicast
+1 (IPv4) | 128 (Labeled VPN Unicast) | IPv4 L3VPN Unicast (VPNv4)
+2 (IPv6) | 128 (Labeled VPN Unicast) | IPv4 L3VPN Unicast (VPNv6)
 1 (IPv4) | 129 (Labeled VPN Multicast) | IPv4 L3VPN Unicast
 2 (IPv6) | 129 (Labeled VPN Multicast) | IPv6 L3VPN Unicast
 
@@ -235,13 +231,47 @@ Border Gateway Protocol - UPDATE Message
                     4-Octet AN: 1
 ```
 
-## IP labeled Unicast Family
+## EVPN Family
+MPLS-Based Ethernet VPN (BGP EVPN) can provide L2VPN services such as data-center interconnection (DCI). This advertises MAC / IP over a MPLS network. Designed as an alternative for VPLS.
+
+IP tunneling such as Virtual Extensible LAN protocol (VXLAN) can provide L2 and L3 overlay networks with EVPN. (VXLAN BGP EVPN)
+
+AFI | SAFI | Name
+--- | --- | ---
+25 (L2VPN) | 70 (EVPN) | VPN EVPN BGP
+
+
+
+Topology Example:
+
+![unicast-vpn](address-family/mpbgp-diagrams-vxlan-bgp-evpn.drawio.svg)
+
+Cisco Configuration Example:
+
+```
+#r1
+
+```
+
+```
+#r2
+
+```
+
+Packet Capture:
+
+```
+Border Gateway Protocol - UPDATE Message
+
+```
+
+## IP Labeled Unicast Family
 BGP-LU used to distribute a MPLS label mapped to a route. Not available on IOSv image.
 
 AFI | SAFI | Name
 --- | --- | ---
 1 (IPv4) | 4 (Labeled Unicast) | IPv4 Labeled Unicast
-2 (IPv6) | 4 (Labeled Unicast)) | IPv6 Labeled Unicast
+2 (IPv6) | 4 (Labeled Unicast) | IPv6 Labeled Unicast
 
 Cisco Configuration Example:
 
@@ -259,6 +289,7 @@ router bgp 1
 * [IANA - Address Family Numbers](https://www.iana.org/assignments/address-family-numbers/address-family-numbers.xhtml)
 * [IANA - Subsequent Address Family Identifiers (SAFI) Parameters](https://www.iana.org/assignments/safi-namespace/safi-namespace.xhtml)
 * [OpenDaylight - BGP User Guide](https://docs.opendaylight.org/projects/bgpcep/en/latest/bgp/index.html#bgp-user-guide)
+* [Indeni - VXLAN with MP-BGP EVPN control plane](https://indeni.com/blog/vxlan-with-mp-bgp-evpn-control-plane/)
 
 
 ---
@@ -271,8 +302,7 @@ router bgp 1
 - [ ] VPN IPv6
 - [ ] L2VPN
 - [ ] Route-target
-- [ ] VPLS
-- [ ] VPWS
+- [ ] VPLS / VPWS
 
 
 - [x] IP Unicast Family
@@ -283,3 +313,4 @@ router bgp 1
 - [ ] MCAST-VPN Family
 - [ ] EVPN Family
 - [ ] Route Target Constrain Family
+- [ ] VPLS ?
