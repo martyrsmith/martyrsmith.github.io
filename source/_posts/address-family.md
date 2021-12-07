@@ -151,8 +151,8 @@ AFI | SAFI | Name
 --- | --- | ---
 1 (IPv4) | 128 (Labeled VPN Unicast) | IPv4 L3VPN Unicast (VPNv4)
 2 (IPv6) | 128 (Labeled VPN Unicast) | IPv4 L3VPN Unicast (VPNv6)
-1 (IPv4) | 129 (Labeled VPN Multicast) | IPv4 L3VPN Unicast
-2 (IPv6) | 129 (Labeled VPN Multicast) | IPv6 L3VPN Unicast
+1 (IPv4) | 129 (Labeled VPN Multicast) | IPv4 L3VPN Multicast
+2 (IPv6) | 129 (Labeled VPN Multicast) | IPv6 L3VPN Multicast
 
 
 Topology Example:
@@ -236,6 +236,8 @@ MPLS-Based Ethernet VPN (BGP EVPN) can provide L2VPN services such as data-cente
 
 IP tunneling such as Virtual Extensible LAN protocol (VXLAN) can provide L2 and L3 overlay networks with EVPN. (VXLAN BGP EVPN)
 
+EVPN Virtual Private Wire Service (EVPN VPWS)
+
 AFI | SAFI | Name
 --- | --- | ---
 25 (L2VPN) | 70 (EVPN) | VPN EVPN BGP
@@ -290,6 +292,7 @@ router bgp 1
 * [IANA - Subsequent Address Family Identifiers (SAFI) Parameters](https://www.iana.org/assignments/safi-namespace/safi-namespace.xhtml)
 * [OpenDaylight - BGP User Guide](https://docs.opendaylight.org/projects/bgpcep/en/latest/bgp/index.html#bgp-user-guide)
 * [Indeni - VXLAN with MP-BGP EVPN control plane](https://indeni.com/blog/vxlan-with-mp-bgp-evpn-control-plane/)
+* [Cisco - VXLAN Lab](http://dc.ciscolive.com/pod0/labs/lab1/lab1-m1)
 
 
 ---
@@ -302,7 +305,10 @@ router bgp 1
 - [ ] VPN IPv6
 - [ ] L2VPN
 - [ ] Route-target
-- [ ] VPLS / VPWS
+- [ ] VPLS
+- [ ] VPWS
+- [ ] xconnect
+- [ ] pseudowire
 
 
 - [x] IP Unicast Family
