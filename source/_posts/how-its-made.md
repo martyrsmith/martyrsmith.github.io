@@ -28,12 +28,11 @@ Hexo is our blogging framework.
 ### Folder structure
 ```
 ├── _drafts
-├── _posts
-│   ├── how-its-made
-│   │   ├── example.drawio
-│   │   └── example.drawio.svg
-│   └── how-its-made.md
-└── about.md
+└── _posts
+   ├── how-its-made
+   │   ├── example.drawio
+   │   └── example.drawio.svg
+   └── how-its-made.md
 ```
 
 ## Github
