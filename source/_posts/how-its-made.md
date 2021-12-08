@@ -13,6 +13,8 @@ Below I describe how this website is created and updated.
 
 ## Hexo
 
+Hexo is our blogging framework. 
+
 ### Setup
 * [Setup Docs](https://hexo.io/docs/setup.html)
 
@@ -23,7 +25,20 @@ Below I describe how this website is created and updated.
 * [Hexo-asset-link](https://github.com/liolok/hexo-asset-link)
 * [Adding Images to Hexo Posts with Markdown](https://chrismroberts.com/2020/01/06/using-markdown-in-hexo-to-add-images/)
 
+### Folder structure
+```
+├── _drafts
+├── _posts
+│   ├── how-its-made
+│   │   ├── example.drawio
+│   │   └── example.drawio.svg
+│   └── how-its-made.md
+└── about.md
+```
+
 ## Github
+
+Github stores our site's code and hosts the statically generated website. 
 
 ### Actions
 * [Actions docs](https://docs.github.com/en/actions/quickstart)
@@ -77,37 +92,31 @@ jobs:
 * Setup a custom domain and SSL
 
 ## Diagrams.net
+Used to create diagrams. 
 
 ### Create new diagram
-* Authenticate with GitHub.
+* Download desktop client from [diagrams.net](https://www.diagrams.net/blog/diagrams-offline)
 * New diagram
-* Select [repo]
-* Select [branch]
 * Navigate to post folder [source/_posts/how-its-made]
 * Name [example.drawio]
 
 ### Export as SVG
 * File, Export as, SVG
-* Select [repo]
-* Select [branch]
 * Navigate to post folder [source/_posts/how-its-made]
 * Name [example.drawio.svg]
 
 
 ## Markdown
+Formatting sytax for blog posts.
+
 [Cheatsheet](https://enterprise.github.com/downloads/en/markdown-cheatsheet.pdf)
 
-### Image with link
 
-#### Syntax
+### Example image code
 ```
- [![image alt text](image url link)](anchor link)
-```
-
-#### Usage
-```
-[![simple diagram](how-its-made/example.drawio.png)](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=example.drawio#Uhttps%3A%2F%2Fraw.githubusercontent.com%2Fmartyrsmith%2Fmartyrsmith.github.io%2Fhow-its-made%2Fsource%2F_posts%2Fhow-its-made%2Fexample.drawio)
+![simple diagram](how-its-made/example.drawio.svg)
 ```
 
-#### Example
-[![simple diagram](how-its-made/example.drawio.svg)](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=example.drawio#Uhttps%3A%2F%2Fraw.githubusercontent.com%2Fmartyrsmith%2Fmartyrsmith.github.io%2Fhow-its-made%2Fsource%2F_posts%2Fhow-its-made%2Fexample.drawio)
+### Example image rendered
+![simple diagram](how-its-made/example.drawio.svg)
+
