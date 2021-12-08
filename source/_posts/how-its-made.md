@@ -2,7 +2,8 @@
 title: How it's made
 date: 2021-11-22 11:20:00
 tags:
-- just_for_fun
+- hexo
+- github
 header_image: /intro/index-bg.jpg
 categories:
   - blog
