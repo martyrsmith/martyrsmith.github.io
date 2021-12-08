@@ -111,11 +111,36 @@ Formatting sytax for blog posts.
 [Cheatsheet](https://enterprise.github.com/downloads/en/markdown-cheatsheet.pdf)
 
 
+
+### Example header structure
+This section controls how the page is rendered and various metadata. 
+```
+---
+title: How it's made
+date: 2020-01-01 01:00:00
+tags:
+- hexo
+- github
+header_image: /intro/index-bg.jpg
+categories:
+  - blog
+---
+```
+
+### Example of body structure
+Use  `<!-- more -->` to generate cleaner excerpets on homepage. 
+```
+Description of today's post
+<!-- more -->
+
+Additional content here. 
+```
+
 ### Example image code
 ```
 ![simple diagram](how-its-made/example.drawio.svg)
 ```
 
-### Example image rendered
-![simple diagram](how-its-made/example.drawio.svg)
+Results in :
 
+![simple diagram](how-its-made/example.drawio.svg)
