@@ -34,7 +34,7 @@ friends:
   # friendA: //www.baidu.com
   # friendB: //www.google.com
 about:
-  enable: false
+  enable: true
 # Search for website
 search:
   enable: false
