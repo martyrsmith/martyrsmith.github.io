@@ -34,12 +34,12 @@ friends:
   # friendA: //www.baidu.com
   # friendB: //www.google.com
 about:
-  enable: true
+  enable: false
 # Search for website
 search:
   enable: false
   # Seach URL, must be set. For example: 'fi3ework.github.io'
-  url:
+  url: dbnservers.net
   # Search engine: 'bing' (default), 'google' or 'baidu'
   engine: google
 # Display icons of friends, about and search
