@@ -19,16 +19,16 @@
         <meta name="keywords" content="dbn,diamondblade,dbn servers">
     
     <meta name="description" content="">
-    <meta name="description" content="Below I describe how this website is created and updated. HexoSetup Setup Docs  Themes Theme Docs  Markdown image support Hexo-asset-link Adding Images to Hexo Posts with Markdown  GithubActions Actio">
+    <meta name="description" content="Below I describe how this website is created and updated. HexoHexo is our blogging framework.  Setup Setup Docs  Themes Theme Docs  Markdown image support Hexo-asset-link Adding Images to Hexo Posts w">
 <meta property="og:type" content="article">
 <meta property="og:title" content="How it&#39;s made">
 <meta property="og:url" content="https://dbnservers.net/blog/how-it-s-made/index.html">
 <meta property="og:site_name" content="DBN">
-<meta property="og:description" content="Below I describe how this website is created and updated. HexoSetup Setup Docs  Themes Theme Docs  Markdown image support Hexo-asset-link Adding Images to Hexo Posts with Markdown  GithubActions Actio">
+<meta property="og:description" content="Below I describe how this website is created and updated. HexoHexo is our blogging framework.  Setup Setup Docs  Themes Theme Docs  Markdown image support Hexo-asset-link Adding Images to Hexo Posts w">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://dbnservers.net/blog/how-it-s-made/example.drawio.svg">
 <meta property="article:published_time" content="2021-11-22T11:20:00.000Z">
-<meta property="article:modified_time" content="2021-12-08T16:29:41.192Z">
+<meta property="article:modified_time" content="2021-12-08T16:53:25.414Z">
 <meta property="article:author" content="Martin">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="github">
@@ -338,7 +338,7 @@
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">296</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                        <span>Word count: <span class="post-count word-count">285</span>Reading time: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -500,7 +500,8 @@
                 <main class="main post-page">
     <article class="article-entry">
         <p>Below I describe how this website is created and updated.</p>
-<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><h3 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h3><ul>
+<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><p>Hexo is our blogging framework. </p>
+<h3 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h3><ul>
 <li><a target="_blank" rel="noopener" href="https://hexo.io/docs/setup.html">Setup Docs</a></li>
 </ul>
 <h3 id="Themes"><a href="#Themes" class="headerlink" title="Themes"></a>Themes</h3><ul>
@@ -510,7 +511,10 @@
 <li><a target="_blank" rel="noopener" href="https://github.com/liolok/hexo-asset-link">Hexo-asset-link</a></li>
 <li><a target="_blank" rel="noopener" href="https://chrismroberts.com/2020/01/06/using-markdown-in-hexo-to-add-images/">Adding Images to Hexo Posts with Markdown</a></li>
 </ul>
-<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><h3 id="Actions"><a href="#Actions" class="headerlink" title="Actions"></a>Actions</h3><ul>
+<h3 id="Folder-structure"><a href="#Folder-structure" class="headerlink" title="Folder structure"></a>Folder structure</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">├── _drafts</span><br><span class="line">├── _posts</span><br><span class="line">│   ├── how-its-made</span><br><span class="line">│   │   ├── example.drawio</span><br><span class="line">│   │   └── example.drawio.svg</span><br><span class="line">│   └── how-its-made.md</span><br><span class="line">└── about.md</span><br></pre></td></tr></table></figure>
+
+<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>Github stores our site’s code and hosts the statically generated website. </p>
+<h3 id="Actions"><a href="#Actions" class="headerlink" title="Actions"></a>Actions</h3><ul>
 <li><a target="_blank" rel="noopener" href="https://docs.github.com/en/actions/quickstart">Actions docs</a></li>
 </ul>
 <h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><p>This automatically builds Hexo site from [main] branch and publishes to [gh-pages] brach.</p>
@@ -522,27 +526,23 @@
 <li>Configure to watch branch [gh-pages] root [/root] folder.</li>
 <li>Setup a custom domain and SSL</li>
 </ul>
-<h2 id="Diagrams-net"><a href="#Diagrams-net" class="headerlink" title="Diagrams.net"></a>Diagrams.net</h2><h3 id="Create-new-diagram"><a href="#Create-new-diagram" class="headerlink" title="Create new diagram"></a>Create new diagram</h3><ul>
-<li>Authenticate with GitHub.</li>
+<h2 id="Diagrams-net"><a href="#Diagrams-net" class="headerlink" title="Diagrams.net"></a>Diagrams.net</h2><p>Used to create diagrams. </p>
+<h3 id="Create-new-diagram"><a href="#Create-new-diagram" class="headerlink" title="Create new diagram"></a>Create new diagram</h3><ul>
+<li>Download desktop client from <a target="_blank" rel="noopener" href="https://www.diagrams.net/blog/diagrams-offline">diagrams.net</a></li>
 <li>New diagram</li>
-<li>Select [repo]</li>
-<li>Select [branch]</li>
 <li>Navigate to post folder [source/_posts/how-its-made]</li>
 <li>Name [example.drawio]</li>
 </ul>
 <h3 id="Export-as-SVG"><a href="#Export-as-SVG" class="headerlink" title="Export as SVG"></a>Export as SVG</h3><ul>
 <li>File, Export as, SVG</li>
-<li>Select [repo]</li>
-<li>Select [branch]</li>
 <li>Navigate to post folder [source/_posts/how-its-made]</li>
 <li>Name [example.drawio.svg]</li>
 </ul>
-<h2 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h2><p><a target="_blank" rel="noopener" href="https://enterprise.github.com/downloads/en/markdown-cheatsheet.pdf">Cheatsheet</a></p>
-<h3 id="Image-with-link"><a href="#Image-with-link" class="headerlink" title="Image with link"></a>Image with link</h3><h4 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[![image alt text](image url link)](anchor link)</span><br></pre></td></tr></table></figure>
+<h2 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h2><p>Formatting sytax for blog posts.</p>
+<p><a target="_blank" rel="noopener" href="https://enterprise.github.com/downloads/en/markdown-cheatsheet.pdf">Cheatsheet</a></p>
+<h3 id="Example-image-code"><a href="#Example-image-code" class="headerlink" title="Example image code"></a>Example image code</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![simple diagram](/blog/how-it-s-made/example.drawio.svg)</span><br></pre></td></tr></table></figure>
 
-<h4 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[![simple diagram](/blog/how-it-s-made/example.drawio.png)](https://viewer.diagrams.net/?tags=%7B%7D&amp;highlight=0000ff&amp;edit=_blank&amp;layers=1&amp;nav=1&amp;title=example.drawio#Uhttps%3A%2F%2Fraw.githubusercontent.com%2Fmartyrsmith%2Fmartyrsmith.github.io%2Fhow-its-made%2Fsource%2F_posts%2Fhow-its-made%2Fexample.drawio)</span><br></pre></td></tr></table></figure>
-
-<h4 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h4><p><a target="_blank" rel="noopener" href="https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=example.drawio#Uhttps%3A%2F%2Fraw.githubusercontent.com%2Fmartyrsmith%2Fmartyrsmith.github.io%2Fhow-its-made%2Fsource%2F_posts%2Fhow-its-made%2Fexample.drawio"><img src="/blog/how-it-s-made/example.drawio.svg" alt="simple diagram"></a></p>
+<h3 id="Example-image-rendered"><a href="#Example-image-rendered" class="headerlink" title="Example image rendered"></a>Example image rendered</h3><p><img src="/blog/how-it-s-made/example.drawio.svg" alt="simple diagram"></p>
 
     </article>
     <!-- license -->
@@ -551,7 +551,7 @@
             <p>Author：<a href="https://dbnservers.net">Martin</a>
             <p>Link：<a href="https://dbnservers.net/blog/how-it-s-made/">https://dbnservers.net/blog/how-it-s-made/</a>
             <p>Publish date：<a href="https://dbnservers.net/blog/how-it-s-made/">November 22nd 2021, 11:20:00 am</a>
-            <p>Update date：<a href="https://dbnservers.net/blog/how-it-s-made/">December 8th 2021, 4:29:41 pm</a>
+            <p>Update date：<a href="https://dbnservers.net/blog/how-it-s-made/">December 8th 2021, 4:53:25 pm</a>
             <p>License：creative commons<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/"> 4.0 </a></p>
         </div>
     
@@ -699,7 +699,7 @@
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo"><span class="toc-number">1.</span> <span class="toc-text">Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Setup"><span class="toc-number">1.1.</span> <span class="toc-text">Setup</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Themes"><span class="toc-number">1.2.</span> <span class="toc-text">Themes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Markdown-image-support"><span class="toc-number">1.3.</span> <span class="toc-text">Markdown image support</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Github"><span class="toc-number">2.</span> <span class="toc-text">Github</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Actions"><span class="toc-number">2.1.</span> <span class="toc-text">Actions</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Example"><span class="toc-number">2.1.1.</span> <span class="toc-text">Example</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pages"><span class="toc-number">2.2.</span> <span class="toc-text">Pages</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Diagrams-net"><span class="toc-number">3.</span> <span class="toc-text">Diagrams.net</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-new-diagram"><span class="toc-number">3.1.</span> <span class="toc-text">Create new diagram</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Export-as-SVG"><span class="toc-number">3.2.</span> <span class="toc-text">Export as SVG</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Markdown"><span class="toc-number">4.</span> <span class="toc-text">Markdown</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Image-with-link"><span class="toc-number">4.1.</span> <span class="toc-text">Image with link</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Syntax"><span class="toc-number">4.1.1.</span> <span class="toc-text">Syntax</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Usage"><span class="toc-number">4.1.2.</span> <span class="toc-text">Usage</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Example-1"><span class="toc-number">4.1.3.</span> <span class="toc-text">Example</span></a></li></ol></li></ol></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo"><span class="toc-number">1.</span> <span class="toc-text">Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Setup"><span class="toc-number">1.1.</span> <span class="toc-text">Setup</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Themes"><span class="toc-number">1.2.</span> <span class="toc-text">Themes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Markdown-image-support"><span class="toc-number">1.3.</span> <span class="toc-text">Markdown image support</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Folder-structure"><span class="toc-number">1.4.</span> <span class="toc-text">Folder structure</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Github"><span class="toc-number">2.</span> <span class="toc-text">Github</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Actions"><span class="toc-number">2.1.</span> <span class="toc-text">Actions</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Example"><span class="toc-number">2.1.1.</span> <span class="toc-text">Example</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pages"><span class="toc-number">2.2.</span> <span class="toc-text">Pages</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Diagrams-net"><span class="toc-number">3.</span> <span class="toc-text">Diagrams.net</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-new-diagram"><span class="toc-number">3.1.</span> <span class="toc-text">Create new diagram</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Export-as-SVG"><span class="toc-number">3.2.</span> <span class="toc-text">Export as SVG</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Markdown"><span class="toc-number">4.</span> <span class="toc-text">Markdown</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Example-image-code"><span class="toc-number">4.1.</span> <span class="toc-text">Example image code</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Example-image-rendered"><span class="toc-number">4.2.</span> <span class="toc-text">Example image rendered</span></a></li></ol></li></ol>
             </div>
         
         <!-- sidebar -->
