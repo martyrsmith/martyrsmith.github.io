@@ -106,7 +106,7 @@ Used to create diagrams.
 
 
 ## Markdown
-Formatting sytax for blog posts.
+Formatting syntax for blog posts.
 
 [Cheatsheet](https://enterprise.github.com/downloads/en/markdown-cheatsheet.pdf)
 
@@ -128,7 +128,7 @@ categories:
 ```
 
 ### Example of body structure
-Use  `<!-- more -->` to generate cleaner excerpets on homepage. 
+Use  `<!-- more -->` to generate cleaner excerpts on homepage. 
 ```
 Description of today's post
 <!-- more -->
