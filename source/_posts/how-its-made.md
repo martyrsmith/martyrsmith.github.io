@@ -8,9 +8,9 @@ header_image: /intro/index-bg.jpg
 categories:
   - blog
 ---
-Below we describe how this website is created and updated. We use a Hexo framework hosted on Github. 
-
+Today we describe how this website is created and updated. We use a Hexo framework hosted on Github. 
 <!-- more -->
+
 ## Hexo
 
 Hexo is our blogging framework. 

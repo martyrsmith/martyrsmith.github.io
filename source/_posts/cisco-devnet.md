@@ -7,7 +7,8 @@ header_image: /intro/index-bg.jpg
 categories:
   - network
 ---
-Below are abbreviated instructions to get started with a virtual lab inside Cisco's free Devnet site.
+Today we discuss abbreviated instructions to get started with a virtual lab inside Cisco's free Devnet site.
+<!-- more -->
 
 
 ## Instructions

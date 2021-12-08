@@ -8,7 +8,8 @@ header_image: /intro/index-bg.jpg
 categories:
   - network
 ---
-Below is an attempt to simplify understanding of the various MP-BGP types. We will discuss various acronyms, address families and modifiers.
+Today we will attempt to simplify understanding of the various MP-BGP types. We will discuss various acronyms, address families and modifiers.
+<!-- more -->
 
 ## Definitions
 Acronym | Phrase | Usage

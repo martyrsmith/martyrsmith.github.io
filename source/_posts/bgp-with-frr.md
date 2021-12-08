@@ -9,8 +9,8 @@ header_image: /intro/index-bg.jpg
 categories:
   - network
 ---
-Below is an example of setting up BGP (iBGP and eBGP) using Ubuntu and FRR.
-
+Today we explore setting up a BGP virtual lab (iBGP and eBGP) using Ubuntu and FRR.
+<!-- more -->
 
 ## Links
 This post was inspired by [Lab 10 BGP Route Reflection](http://ce.sc.edu/cyberinfra/workshops/Material/BGP/Lab%2010.pdf)
