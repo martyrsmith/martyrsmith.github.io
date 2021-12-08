@@ -233,7 +233,7 @@ Border Gateway Protocol - UPDATE Message
 ```
 
 ## EVPN Family
-MPLS-Based Ethernet VPN (BGP EVPN) can provide L2VPN services such as data-center interconnection (DCI). This advertises MAC / IP over a MPLS network. Designed as an alternative for VPLS.
+MPLS-Based Ethernet VPN (BGP EVPN) can provide L2VPN services such as data-center interconnection (DCI). Designed as an alternative for VPLS.
 
 IP tunneling such as Virtual Extensible LAN protocol (VXLAN) can provide L2 and L3 overlay networks with EVPN. (VXLAN BGP EVPN)
 
