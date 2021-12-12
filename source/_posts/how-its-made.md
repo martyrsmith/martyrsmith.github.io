@@ -13,7 +13,7 @@ Today we describe how this website is created and updated. We use a Hexo framewo
 
 ## Hexo
 
-Hexo is our blogging framework. 
+[Hexo](https://hexo.io/) is our blogging framework. 
 
 ### Setup
 * [Setup Docs](https://hexo.io/docs/setup.html)
