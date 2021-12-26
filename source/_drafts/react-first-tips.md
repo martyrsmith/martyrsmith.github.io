@@ -1,0 +1,89 @@
+---
+title: React tips
+date: 2021-12-26 9:00:00
+tags:
+- react
+- javascript
+header_image: /intro/index-bg.jpg
+categories:
+  - frontend
+---
+This post explores setting up a React website.
+<!-- more -->
+
+Examples from [Tutorial: Intro to React](https://reactjs.org/tutorial/tutorial.html)
+
+## Terms
+Term | Defination
+--- | ---
+props | properties
+
+Variable | Scope | Updatable
+--- | --- | ---
+var | global | yes
+let | block | yes
+const | block | no
+
+
+## Conditional Operator
+```
+condition ? true : false
+```
+
+## Function as property
+```
+onClick={() => console.log('click')}
+```
+
+## Functions
+Simplier way to write compoents with only a render compoent and no state. Uses `props.x` format. 
+```
+function Square(props) {
+  return (
+    <button className="square"
+      onClick={props.onSquareClick}
+    >
+      {props.squareValue}
+    </button>
+  )
+}
+```
+
+## Class
+Uses `this.props.x` format. 
+
+```
+class Board extends React.Component {
+  render() {
+    return (
+      <div>
+        {this.props.message}
+        </div>
+    );
+  }
+}
+```
+
+## Method (inside class)
+```
+  renderSquare(i) {
+    return (
+      <Square 
+        squareValue={this.props.squares[i]}
+        onSquareClick={() => this.props.onSquareClick(i)}
+      />
+    );
+  }
+```
+
+## Constructor (inside class)
+Used to save state. 
+```
+  constructor(props) {
+    super(props)
+    this.state = {
+      stepNumber: 0,
+      xIsNext: true,
+    }
+  }
+```
