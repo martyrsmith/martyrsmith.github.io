@@ -13,6 +13,11 @@ This post explores setting up a React website.
 
 Examples from [Tutorial: Intro to React](https://reactjs.org/tutorial/tutorial.html)
 
+Next up
+- [x] [Tutorial: Intro to React](https://reactjs.org/tutorial/tutorial.html)
+- [ ] [hello-world](https://reactjs.org/docs/hello-world.html)
+- [ ] [gatsbyjs](https://www.gatsbyjs.com/starters/)
+
 ## Terms
 Term | Defination
 --- | ---
@@ -24,7 +29,15 @@ var | global | yes
 let | block | yes
 const | block | no
 
-
+## Loop over Array
+Useful to create tables and lists. 
+```
+return <div>
+    {user.map((person, index) => (
+        <h1>Hello, {<Welcome name={formatName(person)} />}</h1>
+    ))}
+</div>
+```
 ## Conditional Operator
 ```
 condition ? true : false
@@ -86,4 +99,27 @@ Used to save state.
       xIsNext: true,
     }
   }
+```
+
+## Use state inside event (inside class)
+```
+    constructor(props) {
+        super(props);
+        this.handleClick = this.handleClick.bind(this)
+    }
+        handleClick() {
+            blah
+    }
+```
+Or experimental 
+```
+handleClick = () => {
+    console.log('this is:', this);
+  }
+```
+
+## Arguments to events
+```
+<button onClick={(e) => this.deleteRow(id, e)}>Delete Row</button>
+<button onClick={this.deleteRow.bind(this, id)}>Delete Row</button>
 ```
