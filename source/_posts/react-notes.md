@@ -8,7 +8,7 @@ header_image: /intro/index-bg.jpg
 categories:
   - frontend
 ---
-This post has simple notes learned while setting up a React website.
+This post contains notes learned while setting up a tutorial React website.
 <!-- more -->
 
 Examples from [Tutorial: Intro to React](https://reactjs.org/tutorial/tutorial.html)
