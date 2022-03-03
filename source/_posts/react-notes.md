@@ -1,5 +1,5 @@
 ---
-title: React notes
+title: React Notes
 date: 2021-12-26 9:00:00
 tags:
 - react
