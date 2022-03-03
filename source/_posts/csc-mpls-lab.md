@@ -11,7 +11,7 @@ header_image: /intro/index-bg.jpg
 categories:
   - network
 ---
-This lab explores various combinations of ISP style networks. Including OSPF, IS-IS, MP-BGP protocols we see several ways to stitch MPLS across different providers.
+This lab explores various combinations of ISP style networks. This incorporates OSPF, IS-IS and MP-BGP protocols. We try several ways to stitch MPLS across different providers.
 <!-- more -->
 
 ## Links
