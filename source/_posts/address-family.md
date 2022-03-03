@@ -19,8 +19,8 @@ Acronym | Phrase | Usage
 [AFI](https://www.iana.org/assignments/address-family-numbers/address-family-numbers.xhtml) | Address Family Numbers | ?
 [SAFI](https://www.iana.org/assignments/safi-namespace/safi-namespace.xhtml) | Subsequent Address Family Identifiers | ?
 NLRI | Network Layer Reachability Information | Destination information. For example, IP + mask.
-RD | Route descriptor | ?
-RT | Route target | ?
+RD | Route Distinguisher | Used to identify which VRF a route belongs.
+RT | Route Target | BGP extended community attribute used to define import and exports.
 
 
 ## Table
@@ -269,7 +269,7 @@ Border Gateway Protocol - UPDATE Message
 ```
 
 ## IP Labeled Unicast Family
-BGP-LU used to distribute a MPLS label mapped to a route. Not available on IOSv image.
+BGP-LU used to distribute a MPLS label mapped to a route. Not available on IOSv image. Allows for sending IP Unicast routes with MPLS tag information.
 
 AFI | SAFI | Name
 --- | --- | ---
