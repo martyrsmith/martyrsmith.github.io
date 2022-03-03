@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- title -->
+
+
+    
+
+<!-- keywords -->
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="Martin">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="Martin">
+    
+        <meta name="keywords" content="dbn,diamondblade,dbn servers">
+    
+    <meta name="description" content="">
+    <meta name="description" content="{&quot;lab&quot;:{&quot;description&quot;:&quot;&quot;,&quot;notes&quot;:&quot;&quot;,&quot;timestamp&quot;:1646324345.7135205,&quot;title&quot;:&quot;MPLS CSC&quot;,&quot;version&quot;:&quot;0.0.4&quot;},&quot;nodes&quot;:[{&quot;id&quot;:&quot;n0&quot;,&quot;label&quot;:&quot;T1&quot;,&quot;node_definition&quot;:&quot;iosv&quot;,&quot;x&quot;:-750,&quot;y&quot;:-200,&quot;configuration&quot;:&quot;Bu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DBN">
+<meta property="og:url" content="https://dbnservers.net/uncategorized/index.html">
+<meta property="og:site_name" content="DBN">
+<meta property="og:description" content="{&quot;lab&quot;:{&quot;description&quot;:&quot;&quot;,&quot;notes&quot;:&quot;&quot;,&quot;timestamp&quot;:1646324345.7135205,&quot;title&quot;:&quot;MPLS CSC&quot;,&quot;version&quot;:&quot;0.0.4&quot;},&quot;nodes&quot;:[{&quot;id&quot;:&quot;n0&quot;,&quot;label&quot;:&quot;T1&quot;,&quot;node_definition&quot;:&quot;iosv&quot;,&quot;x&quot;:-750,&quot;y&quot;:-200,&quot;configuration&quot;:&quot;Bu">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-03-03T16:55:53.011Z">
+<meta property="article:modified_time" content="2022-03-03T16:55:53.011Z">
+<meta property="article:author" content="Martin">
+<meta name="twitter:card" content="summary">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="icon" href="/assets/favicon.ico">
+    
+    <title>DiamondBlade Network</title>
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+    (function (w) {
+        'use strict'
+        // rel=preload support test
+        if (!w.loadCSS) {
+            w.loadCSS = function () {}
+        }
+        // define on the loadCSS obj
+        var rp = (loadCSS.relpreload = {})
+        // rel=preload feature support test
+        // runs once and returns a function for compat purposes
+        rp.support = (function () {
+            var ret
+            try {
+                ret = w.document.createElement('link').relList.supports('preload')
+            } catch (e) {
+                ret = false
+            }
+            return function () {
+                return ret
+            }
+        })()
+
+        // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+        // then change that media back to its intended value on load
+        rp.bindMediaToggle = function (link) {
+            // remember existing media attr for ultimate state, or default to 'all'
+            var finalMedia = link.media || 'all'
+
+            function enableStylesheet() {
+                link.media = finalMedia
+            }
+
+            // bind load handlers to enable media
+            if (link.addEventListener) {
+                link.addEventListener('load', enableStylesheet)
+            } else if (link.attachEvent) {
+                link.attachEvent('onload', enableStylesheet)
+            }
+
+            // Set rel and non-applicable media type to start an async request
+            // note: timeout allows this to happen async to let rendering continue in IE
+            setTimeout(function () {
+                link.rel = 'stylesheet'
+                link.media = 'only x'
+            })
+            // also enable media after 3 seconds,
+            // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+            setTimeout(enableStylesheet, 3000)
+        }
+
+        // loop through link elements in DOM
+        rp.poly = function () {
+            // double check this to prevent external calls from running
+            if (rp.support()) {
+                return
+            }
+            var links = w.document.getElementsByTagName('link')
+            for (var i = 0; i < links.length; i++) {
+                var link = links[i]
+                // qualify links to those with rel=preload and as=style attrs
+                if (
+                    link.rel === 'preload' &&
+                    link.getAttribute('as') === 'style' &&
+                    !link.getAttribute('data-loadcss')
+                ) {
+                    // prevent rerunning on link
+                    link.setAttribute('data-loadcss', true)
+                    // bind listeners to toggle media back
+                    rp.bindMediaToggle(link)
+                }
+            }
+        }
+
+        // if unsupported, run the polyfill
+        if (!rp.support()) {
+            // run once at least
+            rp.poly()
+
+            // rerun poly on an interval until onload
+            var run = w.setInterval(rp.poly, 500)
+            if (w.addEventListener) {
+                w.addEventListener('load', function () {
+                    rp.poly()
+                    w.clearInterval(run)
+                })
+            } else if (w.attachEvent) {
+                w.attachEvent('onload', function () {
+                    rp.poly()
+                    w.clearInterval(run)
+                })
+            }
+        }
+
+        // commonjs
+        if (typeof exports !== 'undefined') {
+            exports.loadCSS = loadCSS
+        } else {
+            w.loadCSS = loadCSS
+        }
+    })(typeof global !== 'undefined' ? global : this)
+</script>
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+</style>
+
+    <link rel="preload" href="/css/style.css?v=20210823" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/css/dark.css?v=20210823" as="style">
+    <link rel="stylesheet" href="/css/dark.css" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="/css/mobile.css?v=20210823" media="(max-width: 960px)">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js?v=20210823" as="script">
+    <link rel="preload" href="/scripts/dark.js?v=20210823" as="script">
+    <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
+    <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
+    <!-- algolia -->
+    
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ == undefined) {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js" />')
+        }
+    </script>
+    
+        <body class="post-body">
+    
+        <!-- header -->
+        <header class="header header-mobile">
+    <!-- top read progress line -->
+    <div class="header-element">
+        <div class="read-progress"></div>
+    </div>
+    <!-- sidebar menu button -->
+    <div class="header-element">
+        
+            <div class="header-sidebar-menu">
+        
+            
+                <div style="padding-left: 1px;">&#xe775;</div>
+            
+        </div>
+    </div>
+    <!-- header actions -->
+    <div class="header-actions">
+        <!-- theme mode switch button -->
+        <span class="header-theme-btn header-element">
+            <i class="fas fa-adjust"></i>
+        </span>
+        <!-- back to home page text -->
+        <span class="home-link header-element">
+            <a href=/>DBN</a>
+        </span>
+    </div>
+    <!-- toggle banner for post layout -->
+    
+        
+            <div class="banner">
+        
+            <div class="blog-title header-element">
+                <a href="/">DBN</a>
+            </div>
+            <div class="post-title header-element">
+                <a href="#" class="post-name"></a>
+            </div>
+        </div>
+    
+</header>
+
+        <!-- fixed footer -->
+        <footer class="footer-fixed">
+    <!-- back to top button -->
+    <div class="footer-fixed-element">
+        
+            <div class="back-top back-top-hidden">
+        
+        
+            <div>&#xe639;</div>
+        
+        </div>
+    </div>
+</footer>
+
+        <!-- wrapper -->
+        <div class="wrapper">
+            <div class="site-intro" style="
+
+
+
+
+
+
+
+    height:50vh;
+
+">
+    
+    <!-- 主页  -->
+    
+        
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+                [Untitled Post]
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+                
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页 meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count word-count">10.5k</span>Reading time: <span class="post-count reading-time">65 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <!-- 撰写日期 -->
+                    <span class="iconfont-archer post-intro-calander">&#xe676;</span>
+                    <span class="post-intro-time">2022/03/03</span>
+                    <!-- busuanzi -->
+                    
+                        <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                            <span class="iconfont-archer post-intro-busuanzi">&#xe602;</span>
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    
+                    <!-- 文章分享 -->
+                    <span class="share-wrapper">
+                        <span class="iconfont-archer share-icon">&#xe71d;</span>
+                        <span class="share-text">Share</span>
+                        <ul class="share-list">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+
+            <script>
+  // get user agent
+  function getBrowserVersions() {
+    var u = window.navigator.userAgent
+    return {
+      userAgent: u,
+      trident: u.indexOf('Trident') > -1, //IE内核
+      presto: u.indexOf('Presto') > -1, //opera内核
+      webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+      gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+      mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+      ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+      android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+      iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+      iPad: u.indexOf('iPad') > -1, //是否为iPad
+      webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+      weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+      uc: u.indexOf('UCBrowser') > -1, //是否为android下的UC浏览器
+    }
+  }
+  var browser = {
+    versions: getBrowserVersions(),
+  }
+  console.log('userAgent: ' + browser.versions.userAgent)
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded')
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document
+        .getElementsByClassName('intro-title')[0]
+        .classList.add('intro-fade-in')
+      document
+        .getElementsByClassName('intro-subtitle')[0]
+        .classList.add('intro-fade-in')
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in')
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb() {
+    if (browser.versions.uc) {
+      console.log('UCBrowser')
+      fontLoaded()
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular'],
+        },
+        loading: function () {
+          // 所有字体开始加载
+          // console.log('font loading');
+        },
+        active: function () {
+          // 所有字体已渲染
+          fontLoaded()
+        },
+        inactive: function () {
+          // 字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout')
+          fontLoaded()
+        },
+        timeout: 5000, // Set the timeout to two seconds
+      })
+    }
+  }
+
+  function asyncErr() {
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0]
+    o.src = u
+    if (cb) {
+      o.addEventListener(
+        'load',
+        function (e) {
+          cb(null, e)
+        },
+        false
+      )
+    }
+    if (err) {
+      o.addEventListener(
+        'error',
+        function (e) {
+          err(null, e)
+        },
+        false
+      )
+    }
+    s.parentNode.insertBefore(o, s)
+  }
+
+  var asyncLoadWithFallBack = function (arr, success, reject) {
+    var currReject = function () {
+      reject()
+      arr.shift()
+      if (arr.length) async(arr[0], success, currReject)
+    }
+
+    async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack(
+    [
+      'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js',
+      'https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js',
+      "/lib/webfontloader.min.js",
+    ],
+    asyncCb,
+    asyncErr
+  )
+</script>
+
+            <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+            <div class="container container-unloaded">
+                <main class="main post-page">
+    <article class="article-entry">
+        {"lab":{"description":"","notes":"","timestamp":1646324345.7135205,"title":"MPLS CSC","version":"0.0.4"},"nodes":[{"id":"n0","label":"T1","node_definition":"iosv","x":-750,"y":-200,"configuration":"Building configuration...\n\nCurrent configuration : 3700 bytes\n!\n! Last configuration change at 20:36:47 UTC Thu Feb 10 2022\n!\nversion 15.9\nservice timestamps debug datetime msec\nservice timestamps log datetime msec\nno service password-encryption\n!\nhostname t1\n!\nboot-start-marker\nboot-end-marker\n!\n!\nno logging console\nenable secret 4 tnhtc92DXBhelxjYk8LWJrPV36S2i4ntXrpb4RFmfqY\nenable password cisco\n!\nno aaa new-model\n!\n!\n!\nmmi polling-interval 60\nno mmi auto-configure\nno mmi pvc\nmmi snmp-timeout 180\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\nno ip domain lookup\nip domain name virl.info\nip cef\nno ipv6 cef\n!\nmultilink bundle-name authenticated\n!\n!\n!\n!\nusername cisco privilege 15 secret 9 $9$CdK1/22/AcYQTN$WENEnAvP0Q5BAbbnEKezfTQ2RzI.5uQUlfSsnSnQAZ.\n!\nredundancy\n!\nno cdp run\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\ninterface Loopback0\n description to\n ip address 50.0.0.1 255.255.0.0\n!\ninterface GigabitEthernet0/0\n description to GigabitEthernet0/1.C10\n ip address 192.168.10.1 255.255.255.0\n duplex auto\n speed auto\n media-type rj45\n!\ninterface GigabitEthernet0/1\n description to\n no ip address\n shutdown\n duplex auto\n speed auto\n media-type rj45\n!\ninterface GigabitEthernet0/2\n description to\n no ip address\n shutdown\n duplex auto\n speed auto\n media-type rj45\n!\ninterface GigabitEthernet0/3\n description to\n no ip address\n shutdown\n duplex auto\n speed auto\n media-type rj45\n!\nrouter ospf 1\n!\nrouter bgp 65001\n bgp log-neighbor-changes\n neighbor 192.168.10.10 remote-as 100\n !\n address-family ipv4\n  network 50.0.0.0 mask 255.255.0.0\n  neighbor 192.168.10.10 activate\n exit-address-family\n!\nip forward-protocol nd\n!\n!\nno ip http server\nno ip http secure-server\nip ssh server algorithm authentication password\n!\nipv6 ioam timestamp\n!\n!\n!\ncontrol-plane\n!\nbanner exec ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\nbanner incoming ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\nbanner login ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\n!\nline con 0\n exec-timeout 0 0\n password cisco\nline aux 0\nline vty 0 4\n exec-timeout 720 0\n password cisco\n login local\n transport input telnet ssh\n!\nno scheduler allocate\n!\nend","image_definition":"iosv-159-3-m3","tags":[],"interfaces":[{"id":"i0","label":"Loopback0","type":"loopback"},{"id":"i1","slot":0,"label":"GigabitEthernet0/0","type":"physical"},{"id":"i2","slot":1,"label":"GigabitEthernet0/1","type":"physical"},{"id":"i3","slot":2,"label":"GigabitEthernet0/2","type":"physical"},{"id":"i4","slot":3,"label":"GigabitEthernet0/3","type":"physical"}]},{"id":"n1","label":"W1","node_definition":"iosv","x":-600,"y":-200,"configuration":"Building configuration...\n\nCurrent configuration : 3690 bytes\n!\n! Last configuration change at 20:36:54 UTC Thu Feb 10 2022\n!\nversion 15.9\nservice timestamps debug datetime msec\nservice timestamps log datetime msec\nno service password-encryption\n!\nhostname w1\n!\nboot-start-marker\nboot-end-marker\n!\n!\nno logging console\nenable secret 4 tnhtc92DXBhelxjYk8LWJrPV36S2i4ntXrpb4RFmfqY\nenable password cisco\n!\nno aaa new-model\n!\n!\n!\nmmi polling-interval 60\nno mmi auto-configure\nno mmi pvc\nmmi snmp-timeout 180\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\nno ip domain lookup\nip domain name virl.info\nip cef\nno ipv6 cef\n!\nmultilink bundle-name authenticated\n!\n!\n!\n!\nusername cisco privilege 15 secret 9 $9$1buiVwBSqEEtyN$ge44yISxaedrFvyCYQd9hp3ZwmfnoAEospSt21/xsmI\n!\nredundancy\n!\nno cdp run\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\ninterface Loopback0\n description to\n ip address 60.0.0.1 255.255.0.0\n!\ninterface GigabitEthernet0/0\n description to GigabitEthernet0/2.C10\n ip address 12.1.10.1 255.255.255.0\n duplex auto\n speed auto\n media-type rj45\n!\ninterface GigabitEthernet0/1\n description to\n no ip address\n shutdown\n duplex auto\n speed auto\n media-type rj45\n!\ninterface GigabitEthernet0/2\n description to\n no ip address\n shutdown\n duplex auto\n speed auto\n media-type rj45\n!\ninterface GigabitEthernet0/3\n description to\n no ip address\n shutdown\n duplex auto\n speed auto\n media-type rj45\n!\nrouter ospf 1\n!\nrouter bgp 1200\n bgp log-neighbor-changes\n neighbor 12.1.10.10 remote-as 100\n !\n address-family ipv4\n  network 60.0.0.0 mask 255.255.0.0\n  neighbor 12.1.10.10 activate\n exit-address-family\n!\nip forward-protocol nd\n!\n!\nno ip http server\nno ip http secure-server\nip ssh server algorithm authentication password\n!\nipv6 ioam timestamp\n!\n!\n!\ncontrol-plane\n!\nbanner exec ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\nbanner incoming ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\nbanner login ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\n!\nline con 0\n exec-timeout 0 0\n password cisco\nline aux 0\nline vty 0 4\n exec-timeout 720 0\n password cisco\n login local\n transport input telnet ssh\n!\nno scheduler allocate\n!\nend","image_definition":"iosv-159-3-m3","tags":[],"interfaces":[{"id":"i0","label":"Loopback0","type":"loopback"},{"id":"i1","slot":0,"label":"GigabitEthernet0/0","type":"physical"},{"id":"i2","slot":1,"label":"GigabitEthernet0/1","type":"physical"},{"id":"i3","slot":2,"label":"GigabitEthernet0/2","type":"physical"},{"id":"i4","slot":3,"label":"GigabitEthernet0/3","type":"physical"}]},{"id":"n2","label":"C10","node_definition":"iosv","x":-700,"y":-50,"configuration":"Building configuration...\n\nCurrent configuration : 4382 bytes\n!\n! Last configuration change at 20:35:28 UTC Thu Feb 10 2022\n!\nversion 15.9\nservice timestamps debug datetime msec\nservice timestamps log datetime msec\nno service password-encryption\n!\nhostname c10\n!\nboot-start-marker\nboot-end-marker\n!\n!\nno logging console\nenable secret 4 tnhtc92DXBhelxjYk8LWJrPV36S2i4ntXrpb4RFmfqY\nenable password cisco\n!\nno aaa new-model\n!\n!\n!\nmmi polling-interval 60\nno mmi auto-configure\nno mmi pvc\nmmi snmp-timeout 180\n!\n!\n!\n!\n!\n!\n!\n!\nip vrf T\n rd 100:1\n route-target export 100:1\n route-target import 100:1\n!\nip vrf W\n rd 100:2\n route-target export 100:2\n route-target import 100:2\n!\n!\n!\n!\nno ip domain lookup\nip domain name virl.info\nip cef\nno ipv6 cef\n!\nmultilink bundle-name authenticated\nmpls label range 10000 10999\n!\n!\n!\n!\nusername cisco privilege 15 secret 9 $9$e7DEPAQ3tgf.hN$JIjjgVObSoCqRja/LVCwCrVMrYs924Fb9X9m2WmXGQI\n!\nredundancy\n!\nno cdp run\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\ninterface Loopback0\n description to\n ip address 10.10.10.10 255.255.255.255\n ip ospf 1 area 0\n!\ninterface GigabitEthernet0/0\n description to GigabitEthernet0/0.C11\n ip address 10.10.11.10 255.255.255.0\n ip ospf 1 area 0\n duplex auto\n speed auto\n media-type rj45\n!\ninterface GigabitEthernet0/1\n description to GigabitEthernet0/0.T1\n ip vrf forwarding T\n ip address 192.168.10.10 255.255.255.0\n duplex auto\n speed auto\n media-type rj45\n!\ninterface GigabitEthernet0/2\n description to GigabitEthernet0/0.W1\n ip vrf forwarding W\n ip address 12.1.10.10 255.255.255.0\n duplex auto\n speed auto\n media-type rj45\n!\ninterface GigabitEthernet0/3\n description to\n no ip address\n shutdown\n duplex auto\n speed auto\n media-type rj45\n!\nrouter ospf 1\n mpls ldp autoconfig\n!\nrouter bgp 100\n bgp log-neighbor-changes\n neighbor 20.20.20.20 remote-as 100\n neighbor 20.20.20.20 update-source Loopback0\n !\n address-family vpnv4\n  neighbor 20.20.20.20 activate\n  neighbor 20.20.20.20 send-community extended\n exit-address-family\n !\n address-family ipv4 vrf T\n  neighbor 192.168.10.1 remote-as 65001\n  neighbor 192.168.10.1 activate\n exit-address-family\n !\n address-family ipv4 vrf W\n  neighbor 12.1.10.1 remote-as 1200\n  neighbor 12.1.10.1 activate\n  neighbor 12.1.10.1 as-override\n exit-address-family\n!\nip forward-protocol nd\n!\n!\nno ip http server\nno ip http secure-server\nip ssh server algorithm authentication password\n!\nipv6 ioam timestamp\n!\n!\n!\ncontrol-plane\n!\nbanner exec ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\nbanner incoming ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\nbanner login ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\n!\nline con 0\n exec-timeout 0 0\n password cisco\nline aux 0\nline vty 0 4\n exec-timeout 720 0\n password cisco\n login local\n transport input telnet ssh\n!\nno scheduler allocate\n!\nend","image_definition":"iosv-159-3-m3","tags":[],"interfaces":[{"id":"i0","label":"Loopback0","type":"loopback"},{"id":"i1","slot":0,"label":"GigabitEthernet0/0","type":"physical"},{"id":"i2","slot":1,"label":"GigabitEthernet0/1","type":"physical"},{"id":"i3","slot":2,"label":"GigabitEthernet0/2","type":"physical"},{"id":"i4","slot":3,"label":"GigabitEthernet0/3","type":"physical"}]},{"id":"n3","label":"C11","node_definition":"iosv","x":-700,"y":50,"configuration":"Building configuration...\n\nCurrent configuration : 3649 bytes\n!\n! Last configuration change at 20:35:29 UTC Thu Feb 10 2022\n!\nversion 15.9\nservice timestamps debug datetime msec\nservice timestamps log datetime msec\nno service password-encryption\n!\nhostname c11\n!\nboot-start-marker\nboot-end-marker\n!\n!\nno logging console\nenable secret 4 tnhtc92DXBhelxjYk8LWJrPV36S2i4ntXrpb4RFmfqY\nenable password cisco\n!\nno aaa new-model\n!\n!\n!\nmmi polling-interval 60\nno mmi auto-configure\nno mmi pvc\nmmi snmp-timeout 180\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\nno ip domain lookup\nip domain name virl.info\nip cef\nno ipv6 cef\n!\nmultilink bundle-name authenticated\nmpls label range 11000 11999\n!\n!\n!\n!\nusername cisco privilege 15 secret 9 $9$4j35pryRwdhg67$M/LG8DuYyEfzeJRAbGC6TIvBniQs2PWaPRDNgTQm65U\n!\nredundancy\n!\nno cdp run\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\ninterface Loopback0\n description to\n ip address 11.11.11.11 255.255.255.255\n ip ospf 1 area 0\n!\ninterface GigabitEthernet0/0\n description to GigabitEthernet0/0.C10\n ip address 10.10.11.11 255.255.255.0\n ip ospf 1 area 0\n duplex auto\n speed auto\n media-type rj45\n!\ninterface GigabitEthernet0/1\n description to GigabitEthernet0/1.C12\n ip address 10.11.12.11 255.255.255.0\n ip ospf 1 area 0\n duplex auto\n speed auto\n media-type rj45\n!\ninterface GigabitEthernet0/2\n description to\n no ip address\n shutdown\n duplex auto\n speed auto\n media-type rj45\n!\ninterface GigabitEthernet0/3\n description to\n no ip address\n shutdown\n duplex auto\n speed auto\n media-type rj45\n!\nrouter ospf 1\n mpls ldp autoconfig\n!\nip forward-protocol nd\n!\n!\nno ip http server\nno ip http secure-server\nip ssh server algorithm authentication password\n!\nipv6 ioam timestamp\n!\n!\n!\ncontrol-plane\n!\nbanner exec ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\nbanner incoming ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\nbanner login ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\n!\nline con 0\n exec-timeout 0 0\n password cisco\nline aux 0\nline vty 0 4\n exec-timeout 720 0\n password cisco\n login local\n transport input telnet ssh\n!\nno scheduler allocate\n!\nend","image_definition":"iosv-159-3-m3","tags":[],"interfaces":[{"id":"i0","label":"Loopback0","type":"loopback"},{"id":"i1","slot":0,"label":"GigabitEthernet0/0","type":"physical"},{"id":"i2","slot":1,"label":"GigabitEthernet0/1","type":"physical"},{"id":"i3","slot":2,"label":"GigabitEthernet0/2","type":"physical"},{"id":"i4","slot":3,"label":"GigabitEthernet0/3","type":"physical"}]},{"id":"n4","label":"C12","node_definition":"iosv","x":-700,"y":150,"configuration":"Building configuration...\n\nCurrent configuration : 3830 bytes\n!\n! Last configuration change at 20:35:38 UTC Thu Feb 10 2022\n!\nversion 15.9\nservice timestamps debug datetime msec\nservice timestamps log datetime msec\nno service password-encryption\n!\nhostname c12\n!\nboot-start-marker\nboot-end-marker\n!\n!\nno logging console\nenable secret 4 tnhtc92DXBhelxjYk8LWJrPV36S2i4ntXrpb4RFmfqY\nenable password cisco\n!\nno aaa new-model\n!\n!\n!\nmmi polling-interval 60\nno mmi auto-configure\nno mmi pvc\nmmi snmp-timeout 180\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\nno ip domain lookup\nip domain name virl.info\nip cef\nno ipv6 cef\n!\nmultilink bundle-name authenticated\nmpls label range 12000 12999\n!\n!\n!\n!\nusername cisco privilege 15 secret 9 $9$rU/bXyuDREV63N$IbpXXvcOyrjZh1hoVgHQXPwXeDCoWdXEL2IrUgWvqVw\n!\nredundancy\n!\nno cdp run\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\ninterface Loopback0\n description to\n ip address 12.12.12.12 255.255.255.255\n ip ospf 1 area 0\n!\ninterface GigabitEthernet0/0\n description to GigabitEthernet0/0.V1\n ip address 23.1.12.12 255.255.255.0\n duplex auto\n speed auto\n media-type rj45\n mpls bgp forwarding\n!\ninterface GigabitEthernet0/1\n description to GigabitEthernet0/1.C11\n ip address 10.11.12.12 255.255.255.0\n ip ospf 1 area 0\n duplex auto\n speed auto\n media-type rj45\n!\ninterface GigabitEthernet0/2\n description to\n no ip address\n shutdown\n duplex auto\n speed auto\n media-type rj45\n!\ninterface GigabitEthernet0/3\n description to\n no ip address\n shutdown\n duplex auto\n speed auto\n media-type rj45\n!\nrouter ospf 1\n mpls ldp autoconfig\n redistribute bgp 100 subnets\n!\nrouter bgp 100\n bgp log-neighbor-changes\n network 10.10.10.10 mask 255.255.255.255\n neighbor 23.1.12.1 remote-as 200\n neighbor 23.1.12.1 send-label\n!\nip forward-protocol nd\n!\n!\nno ip http server\nno ip http secure-server\nip ssh server algorithm authentication password\n!\nipv6 ioam timestamp\n!\n!\n!\ncontrol-plane\n!\nbanner exec ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\nbanner incoming ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\nbanner login ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\n!\nline con 0\n exec-timeout 0 0\n password cisco\nline aux 0\nline vty 0 4\n exec-timeout 720 0\n password cisco\n login local\n transport input telnet ssh\n!\nno scheduler allocate\n!\nend","image_definition":"iosv-159-3-m3","tags":[],"interfaces":[{"id":"i0","label":"Loopback0","type":"loopback"},{"id":"i1","slot":0,"label":"GigabitEthernet0/0","type":"physical"},{"id":"i2","slot":1,"label":"GigabitEthernet0/1","type":"physical"},{"id":"i3","slot":2,"label":"GigabitEthernet0/2","type":"physical"},{"id":"i4","slot":3,"label":"GigabitEthernet0/3","type":"physical"}]},{"id":"n5","label":"T2","node_definition":"iosv","x":0,"y":-200,"configuration":"Building configuration...\n\nCurrent configuration : 3700 bytes\n!\n! Last configuration change at 20:37:00 UTC Thu Feb 10 2022\n!\nversion 15.9\nservice timestamps debug datetime msec\nservice timestamps log datetime msec\nno service password-encryption\n!\nhostname t2\n!\nboot-start-marker\nboot-end-marker\n!\n!\nno logging console\nenable secret 4 tnhtc92DXBhelxjYk8LWJrPV36S2i4ntXrpb4RFmfqY\nenable password cisco\n!\nno aaa new-model\n!\n!\n!\nmmi polling-interval 60\nno mmi auto-configure\nno mmi pvc\nmmi snmp-timeout 180\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\nno ip domain lookup\nip domain name virl.info\nip cef\nno ipv6 cef\n!\nmultilink bundle-name authenticated\n!\n!\n!\n!\nusername cisco privilege 15 secret 9 $9$kUdrvQSaCf5ED7$zkmMzA3HE7NGC5Bh9hph3LIX7BFHzIaIdDw4WvhetWE\n!\nredundancy\n!\nno cdp run\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\ninterface Loopback0\n description to\n ip address 50.1.0.1 255.255.0.0\n!\ninterface GigabitEthernet0/0\n description to GigabitEthernet0/1.C20\n ip address 192.168.20.2 255.255.255.0\n duplex auto\n speed auto\n media-type rj45\n!\ninterface GigabitEthernet0/1\n description to\n no ip address\n shutdown\n duplex auto\n speed auto\n media-type rj45\n!\ninterface GigabitEthernet0/2\n description to\n no ip address\n shutdown\n duplex auto\n speed auto\n media-type rj45\n!\ninterface GigabitEthernet0/3\n description to\n no ip address\n shutdown\n duplex auto\n speed auto\n media-type rj45\n!\nrouter ospf 1\n!\nrouter bgp 65002\n bgp log-neighbor-changes\n neighbor 192.168.20.20 remote-as 100\n !\n address-family ipv4\n  network 50.1.0.0 mask 255.255.0.0\n  neighbor 192.168.20.20 activate\n exit-address-family\n!\nip forward-protocol nd\n!\n!\nno ip http server\nno ip http secure-server\nip ssh server algorithm authentication password\n!\nipv6 ioam timestamp\n!\n!\n!\ncontrol-plane\n!\nbanner exec ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\nbanner incoming ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\nbanner login ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\n!\nline con 0\n exec-timeout 0 0\n password cisco\nline aux 0\nline vty 0 4\n exec-timeout 720 0\n password cisco\n login local\n transport input telnet ssh\n!\nno scheduler allocate\n!\nend","image_definition":"iosv-159-3-m3","tags":[],"interfaces":[{"id":"i0","label":"Loopback0","type":"loopback"},{"id":"i1","slot":0,"label":"GigabitEthernet0/0","type":"physical"},{"id":"i2","slot":1,"label":"GigabitEthernet0/1","type":"physical"},{"id":"i3","slot":2,"label":"GigabitEthernet0/2","type":"physical"},{"id":"i4","slot":3,"label":"GigabitEthernet0/3","type":"physical"}]},{"id":"n6","label":"W2","node_definition":"iosv","x":-200,"y":-200,"configuration":"Building configuration...\n\nCurrent configuration : 3690 bytes\n!\n! Last configuration change at 20:36:53 UTC Thu Feb 10 2022\n!\nversion 15.9\nservice timestamps debug datetime msec\nservice timestamps log datetime msec\nno service password-encryption\n!\nhostname w2\n!\nboot-start-marker\nboot-end-marker\n!\n!\nno logging console\nenable secret 4 tnhtc92DXBhelxjYk8LWJrPV36S2i4ntXrpb4RFmfqY\nenable password cisco\n!\nno aaa new-model\n!\n!\n!\nmmi polling-interval 60\nno mmi auto-configure\nno mmi pvc\nmmi snmp-timeout 180\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\nno ip domain lookup\nip domain name virl.info\nip cef\nno ipv6 cef\n!\nmultilink bundle-name authenticated\n!\n!\n!\n!\nusername cisco privilege 15 secret 9 $9$lakEH9XtmiYJe7$5XCVkhVIiMbZGdurPuUG2puiyCaaMwSgg16erJzBk5M\n!\nredundancy\n!\nno cdp run\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\ninterface Loopback0\n description to\n ip address 60.1.0.1 255.255.0.0\n!\ninterface GigabitEthernet0/0\n description to GigabitEthernet0/2.C20\n ip address 12.2.20.2 255.255.255.0\n duplex auto\n speed auto\n media-type rj45\n!\ninterface GigabitEthernet0/1\n description to\n no ip address\n shutdown\n duplex auto\n speed auto\n media-type rj45\n!\ninterface GigabitEthernet0/2\n description to\n no ip address\n shutdown\n duplex auto\n speed auto\n media-type rj45\n!\ninterface GigabitEthernet0/3\n description to\n no ip address\n shutdown\n duplex auto\n speed auto\n media-type rj45\n!\nrouter ospf 1\n!\nrouter bgp 1200\n bgp log-neighbor-changes\n neighbor 12.2.20.20 remote-as 100\n !\n address-family ipv4\n  network 60.1.0.0 mask 255.255.0.0\n  neighbor 12.2.20.20 activate\n exit-address-family\n!\nip forward-protocol nd\n!\n!\nno ip http server\nno ip http secure-server\nip ssh server algorithm authentication password\n!\nipv6 ioam timestamp\n!\n!\n!\ncontrol-plane\n!\nbanner exec ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\nbanner incoming ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\nbanner login ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\n!\nline con 0\n exec-timeout 0 0\n password cisco\nline aux 0\nline vty 0 4\n exec-timeout 720 0\n password cisco\n login local\n transport input telnet ssh\n!\nno scheduler allocate\n!\nend","image_definition":"iosv-159-3-m3","tags":[],"interfaces":[{"id":"i0","label":"Loopback0","type":"loopback"},{"id":"i1","slot":0,"label":"GigabitEthernet0/0","type":"physical"},{"id":"i2","slot":1,"label":"GigabitEthernet0/1","type":"physical"},{"id":"i3","slot":2,"label":"GigabitEthernet0/2","type":"physical"},{"id":"i4","slot":3,"label":"GigabitEthernet0/3","type":"physical"}]},{"id":"n7","label":"C20","node_definition":"iosv","x":-100,"y":-50,"configuration":"Building configuration...\n\nCurrent configuration : 4837 bytes\n!\n! Last configuration change at 20:35:44 UTC Thu Feb 10 2022\n!\nversion 15.9\nservice timestamps debug datetime msec\nservice timestamps log datetime msec\nno service password-encryption\n!\nhostname c20\n!\nboot-start-marker\nboot-end-marker\n!\n!\nno logging console\nenable secret 4 tnhtc92DXBhelxjYk8LWJrPV36S2i4ntXrpb4RFmfqY\nenable password cisco\n!\nno aaa new-model\n!\n!\n!\nmmi polling-interval 60\nno mmi auto-configure\nno mmi pvc\nmmi snmp-timeout 180\n!\n!\n!\n!\n!\n!\n!\n!\nip vrf T\n rd 100:1\n route-target export 100:1\n route-target import 100:1\n!\nip vrf W\n rd 100:2\n route-target export 100:2\n route-target import 100:2\n!\n!\n!\n!\nno ip domain lookup\nip domain name virl.info\nip cef\nno ipv6 cef\n!\nmultilink bundle-name authenticated\nmpls label range 20000 20999\nmpls traffic-eng tunnels\n!\n!\n!\n!\nusername cisco privilege 15 secret 9 $9$edu2CqoEO74fgN$U9YTy6HuJkpp5S80hEZyPPNzl.a/Xm5L6aqbyrXjz.6\n!\nredundancy\n!\nno cdp run\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\ninterface Loopback0\n description to\n ip address 20.20.20.20 255.255.255.255\n ip ospf 1 area 0\n!\ninterface Tunnel1\n ip unnumbered Loopback0\n mpls ip\n tunnel mode mpls traffic-eng\n tunnel destination 22.22.22.22\n tunnel mpls traffic-eng autoroute announce\n tunnel mpls traffic-eng priority 7 7\n tunnel mpls traffic-eng bandwidth 900\n tunnel mpls traffic-eng path-option 10 dynamic\n no routing dynamic\n!\ninterface GigabitEthernet0/0\n description to GigabitEthernet0/0.C21\n ip address 10.20.21.20 255.255.255.0\n ip ospf 1 area 0\n duplex auto\n speed auto\n media-type rj45\n no mpls ldp igp autoconfig\n mpls traffic-eng tunnels\n ip rsvp bandwidth 4000 4000\n!\ninterface GigabitEthernet0/1\n description to GigabitEthernet0/0.T2\n ip vrf forwarding T\n ip address 192.168.20.20 255.255.255.0\n duplex auto\n speed auto\n media-type rj45\n!\ninterface GigabitEthernet0/2\n description to GigabitEthernet0/0.W2\n ip vrf forwarding W\n ip address 12.2.20.20 255.255.255.0\n duplex auto\n speed auto\n media-type rj45\n!\ninterface GigabitEthernet0/3\n description to\n no ip address\n shutdown\n duplex auto\n speed auto\n media-type rj45\n!\nrouter ospf 1\n mpls traffic-eng router-id Loopback0\n mpls traffic-eng area 0\n!\nrouter bgp 100\n bgp log-neighbor-changes\n neighbor 10.10.10.10 remote-as 100\n neighbor 10.10.10.10 update-source Loopback0\n !\n address-family vpnv4\n  neighbor 10.10.10.10 activate\n  neighbor 10.10.10.10 send-community extended\n exit-address-family\n !\n address-family ipv4 vrf T\n  neighbor 192.168.20.2 remote-as 65002\n  neighbor 192.168.20.2 activate\n exit-address-family\n !\n address-family ipv4 vrf W\n  neighbor 12.2.20.2 remote-as 1200\n  neighbor 12.2.20.2 activate\n  neighbor 12.2.20.2 as-override\n exit-address-family\n!\nip forward-protocol nd\n!\n!\nno ip http server\nno ip http secure-server\nip ssh server algorithm authentication password\n!\nipv6 ioam timestamp\n!\n!\n!\ncontrol-plane\n!\nbanner exec ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\nbanner incoming ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\nbanner login ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\n!\nline con 0\n exec-timeout 0 0\n password cisco\nline aux 0\nline vty 0 4\n exec-timeout 720 0\n password cisco\n login local\n transport input telnet ssh\n!\nno scheduler allocate\n!\nend","image_definition":"iosv-159-3-m3","tags":[],"interfaces":[{"id":"i0","label":"Loopback0","type":"loopback"},{"id":"i1","slot":0,"label":"GigabitEthernet0/0","type":"physical"},{"id":"i2","slot":1,"label":"GigabitEthernet0/1","type":"physical"},{"id":"i3","slot":2,"label":"GigabitEthernet0/2","type":"physical"},{"id":"i4","slot":3,"label":"GigabitEthernet0/3","type":"physical"}]},{"id":"n8","label":"C21","node_definition":"iosv","x":-100,"y":50,"configuration":"Building configuration...\n\nCurrent configuration : 3826 bytes\n!\n! Last configuration change at 20:35:50 UTC Thu Feb 10 2022\n!\nversion 15.9\nservice timestamps debug datetime msec\nservice timestamps log datetime msec\nno service password-encryption\n!\nhostname c21\n!\nboot-start-marker\nboot-end-marker\n!\n!\nno logging console\nenable secret 4 tnhtc92DXBhelxjYk8LWJrPV36S2i4ntXrpb4RFmfqY\nenable password cisco\n!\nno aaa new-model\n!\n!\n!\nmmi polling-interval 60\nno mmi auto-configure\nno mmi pvc\nmmi snmp-timeout 180\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\nno ip domain lookup\nip domain name virl.info\nip cef\nno ipv6 cef\n!\nmultilink bundle-name authenticated\nmpls label range 21000 21999\nmpls traffic-eng tunnels\n!\n!\n!\n!\nusername cisco privilege 15 secret 9 $9$tiRa4msNaYz2T7$rOStrGK1KzId0Y7xRJzg6d54rUCQR2dBi/ivRjfbni6\n!\nredundancy\n!\nno cdp run\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\ninterface Loopback0\n description to\n ip address 21.21.21.21 255.255.255.255\n ip ospf 1 area 0\n!\ninterface GigabitEthernet0/0\n description to GigabitEthernet0/0.C20\n ip address 10.20.21.21 255.255.255.0\n ip ospf 1 area 0\n duplex auto\n speed auto\n media-type rj45\n mpls traffic-eng tunnels\n ip rsvp bandwidth 4000 4000\n!\ninterface GigabitEthernet0/1\n description to GigabitEthernet0/1.C22\n ip address 10.21.22.21 255.255.255.0\n ip ospf 1 area 0\n duplex auto\n speed auto\n media-type rj45\n mpls traffic-eng tunnels\n ip rsvp bandwidth 4000 4000\n!\ninterface GigabitEthernet0/2\n description to\n no ip address\n shutdown\n duplex auto\n speed auto\n media-type rj45\n!\ninterface GigabitEthernet0/3\n description to\n no ip address\n shutdown\n duplex auto\n speed auto\n media-type rj45\n!\nrouter ospf 1\n mpls traffic-eng router-id Loopback0\n mpls traffic-eng area 0\n!\nip forward-protocol nd\n!\n!\nno ip http server\nno ip http secure-server\nip ssh server algorithm authentication password\n!\nipv6 ioam timestamp\n!\n!\n!\ncontrol-plane\n!\nbanner exec ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\nbanner incoming ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\nbanner login ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\n!\nline con 0\n exec-timeout 0 0\n password cisco\nline aux 0\nline vty 0 4\n exec-timeout 720 0\n password cisco\n login local\n transport input telnet ssh\n!\nno scheduler allocate\n!\nend","image_definition":"iosv-159-3-m3","tags":[],"interfaces":[{"id":"i0","label":"Loopback0","type":"loopback"},{"id":"i1","slot":0,"label":"GigabitEthernet0/0","type":"physical"},{"id":"i2","slot":1,"label":"GigabitEthernet0/1","type":"physical"},{"id":"i3","slot":2,"label":"GigabitEthernet0/2","type":"physical"},{"id":"i4","slot":3,"label":"GigabitEthernet0/3","type":"physical"}]},{"id":"n9","label":"C22","node_definition":"iosv","x":-100,"y":150,"configuration":"Building configuration...\n\nCurrent configuration : 4257 bytes\n!\n! Last configuration change at 20:35:52 UTC Thu Feb 10 2022\n!\nversion 15.9\nservice timestamps debug datetime msec\nservice timestamps log datetime msec\nno service password-encryption\n!\nhostname c22\n!\nboot-start-marker\nboot-end-marker\n!\n!\nno logging console\nenable secret 4 tnhtc92DXBhelxjYk8LWJrPV36S2i4ntXrpb4RFmfqY\nenable password cisco\n!\nno aaa new-model\n!\n!\n!\nmmi polling-interval 60\nno mmi auto-configure\nno mmi pvc\nmmi snmp-timeout 180\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\nno ip domain lookup\nip domain name virl.info\nip cef\nno ipv6 cef\n!\nmultilink bundle-name authenticated\nmpls label range 22000 22999\nmpls traffic-eng tunnels\n!\n!\n!\n!\nusername cisco privilege 15 secret 9 $9$o2bNDXM2KwBGXt$tUxmHUCKW.UPkHK/ZARwgjRBaGWY8/JORxYLg24DfHs\n!\nredundancy\n!\nno cdp run\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\ninterface Loopback0\n description to\n ip address 22.22.22.22 255.255.255.255\n ip ospf 1 area 0\n!\ninterface Tunnel1\n ip unnumbered Loopback0\n mpls ip\n tunnel mode mpls traffic-eng\n tunnel destination 20.20.20.20\n tunnel mpls traffic-eng autoroute announce\n tunnel mpls traffic-eng priority 7 7\n tunnel mpls traffic-eng bandwidth 900\n tunnel mpls traffic-eng path-option 10 dynamic\n no routing dynamic\n!\ninterface GigabitEthernet0/0\n description to GigabitEthernet0/0.V4\n ip address 23.4.22.22 255.255.255.0\n duplex auto\n speed auto\n media-type rj45\n mpls bgp forwarding\n!\ninterface GigabitEthernet0/1\n description to GigabitEthernet0/1.C21\n ip address 10.21.22.22 255.255.255.0\n ip ospf 1 area 0\n duplex auto\n speed auto\n media-type rj45\n mpls traffic-eng tunnels\n ip rsvp bandwidth 4000 4000\n!\ninterface GigabitEthernet0/2\n description to\n no ip address\n shutdown\n duplex auto\n speed auto\n media-type rj45\n!\ninterface GigabitEthernet0/3\n description to\n no ip address\n shutdown\n duplex auto\n speed auto\n media-type rj45\n!\nrouter ospf 1\n mpls traffic-eng router-id Loopback0\n mpls traffic-eng area 0\n redistribute bgp 100 subnets\n!\nrouter bgp 100\n bgp log-neighbor-changes\n network 20.20.20.20 mask 255.255.255.255\n neighbor 23.4.22.4 remote-as 200\n neighbor 23.4.22.4 send-label\n!\nip forward-protocol nd\n!\n!\nno ip http server\nno ip http secure-server\nip ssh server algorithm authentication password\n!\nipv6 ioam timestamp\n!\n!\n!\ncontrol-plane\n!\nbanner exec ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\nbanner incoming ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\nbanner login ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\n!\nline con 0\n exec-timeout 0 0\n password cisco\nline aux 0\nline vty 0 4\n exec-timeout 720 0\n password cisco\n login local\n transport input telnet ssh\n!\nno scheduler allocate\n!\nend","image_definition":"iosv-159-3-m3","tags":[],"interfaces":[{"id":"i0","label":"Loopback0","type":"loopback"},{"id":"i1","slot":0,"label":"GigabitEthernet0/0","type":"physical"},{"id":"i2","slot":1,"label":"GigabitEthernet0/1","type":"physical"},{"id":"i3","slot":2,"label":"GigabitEthernet0/2","type":"physical"},{"id":"i4","slot":3,"label":"GigabitEthernet0/3","type":"physical"}]},{"id":"n10","label":"V1","node_definition":"iosv","x":-600,"y":400,"configuration":"Building configuration...\n\nCurrent configuration : 4382 bytes\n!\n! Last configuration change at 20:34:53 UTC Thu Feb 10 2022\n!\nversion 15.9\nservice timestamps debug datetime msec\nservice timestamps log datetime msec\nno service password-encryption\n!\nhostname v1\n!\nboot-start-marker\nboot-end-marker\n!\n!\nno logging console\nenable secret 4 tnhtc92DXBhelxjYk8LWJrPV36S2i4ntXrpb4RFmfqY\nenable password cisco\n!\nno aaa new-model\n!\n!\n!\nmmi polling-interval 60\nno mmi auto-configure\nno mmi pvc\nmmi snmp-timeout 180\n!\n!\n!\n!\n!\n!\n!\n!\nip vrf C\n rd 200:1\n route-target export 200:1\n route-target import 200:1\n!\n!\n!\n!\nno ip domain lookup\nip domain name virl.info\nip cef\nno ipv6 cef\n!\nmultilink bundle-name authenticated\nmpls label range 1000 1999\n!\n!\n!\n!\nusername cisco privilege 15 secret 9 $9$rrgXl4wckcyF4d$2Rj8UrgozHPBWNfvEh9IKu4upeN7qcIRmC42BX/rFzI\n!\nredundancy\n!\nno cdp run\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\ninterface Loopback0\n description to\n ip address 1.1.1.1 255.255.255.255\n ip router isis\n!\ninterface GigabitEthernet0/0\n description to GigabitEthernet0/0.C12\n ip vrf forwarding C\n ip address 23.1.12.1 255.255.255.0\n duplex auto\n speed auto\n media-type rj45\n mpls bgp forwarding\n!\ninterface GigabitEthernet0/1\n description to GigabitEthernet0/1.V2\n ip address 23.1.2.1 255.255.255.0\n ip router isis\n duplex auto\n speed auto\n media-type rj45\n!\ninterface GigabitEthernet0/2\n description to GigabitEthernet0/2.V3\n ip address 23.1.3.1 255.255.255.0\n ip router isis\n duplex auto\n speed auto\n media-type rj45\n!\ninterface GigabitEthernet0/3\n description to\n no ip address\n shutdown\n duplex auto\n speed auto\n media-type rj45\n!\nrouter ospf 1\n!\nrouter isis\n mpls ldp autoconfig\n mpls traffic-eng router-id Loopback0\n mpls traffic-eng level-2\n net 49.0001.0000.0000.000a.00\n is-type level-2-only\n metric-style wide level-2\n log-adjacency-changes\n!\nrouter bgp 200\n bgp log-neighbor-changes\n neighbor 4.4.4.4 remote-as 200\n neighbor 4.4.4.4 update-source Loopback0\n !\n address-family vpnv4\n  neighbor 4.4.4.4 activate\n  neighbor 4.4.4.4 send-community extended\n exit-address-family\n !\n address-family ipv4 vrf C\n  neighbor 23.1.12.12 remote-as 100\n  neighbor 23.1.12.12 activate\n  neighbor 23.1.12.12 as-override\n  neighbor 23.1.12.12 send-label\n exit-address-family\n!\nip forward-protocol nd\n!\n!\nno ip http server\nno ip http secure-server\nip ssh server algorithm authentication password\n!\nipv6 ioam timestamp\n!\n!\n!\ncontrol-plane\n!\nbanner exec ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\nbanner incoming ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\nbanner login ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\n!\nline con 0\n exec-timeout 0 0\n password cisco\nline aux 0\nline vty 0 4\n exec-timeout 720 0\n password cisco\n login local\n transport input telnet ssh\n!\nno scheduler allocate\n!\nend","image_definition":"iosv-159-3-m3","tags":[],"interfaces":[{"id":"i0","label":"Loopback0","type":"loopback"},{"id":"i1","slot":0,"label":"GigabitEthernet0/0","type":"physical"},{"id":"i2","slot":1,"label":"GigabitEthernet0/1","type":"physical"},{"id":"i3","slot":2,"label":"GigabitEthernet0/2","type":"physical"},{"id":"i4","slot":3,"label":"GigabitEthernet0/3","type":"physical"}]},{"id":"n11","label":"V2","node_definition":"iosv","x":-450,"y":300,"configuration":"Building configuration...\n\nCurrent configuration : 3812 bytes\n!\n! Last configuration change at 20:34:55 UTC Thu Feb 10 2022\n!\nversion 15.9\nservice timestamps debug datetime msec\nservice timestamps log datetime msec\nno service password-encryption\n!\nhostname v2\n!\nboot-start-marker\nboot-end-marker\n!\n!\nno logging console\nenable secret 4 tnhtc92DXBhelxjYk8LWJrPV36S2i4ntXrpb4RFmfqY\nenable password cisco\n!\nno aaa new-model\n!\n!\n!\nmmi polling-interval 60\nno mmi auto-configure\nno mmi pvc\nmmi snmp-timeout 180\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\nno ip domain lookup\nip domain name virl.info\nip cef\nno ipv6 cef\n!\nmultilink bundle-name authenticated\nmpls label range 2000 2999\n!\n!\n!\n!\nusername cisco privilege 15 secret 9 $9$twZO/pd7v2Juud$cgw/ZYuZIyIHs2OmsKbIHBBPlDudecO8JyZP3SGad4c\n!\nredundancy\n!\nno cdp run\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\ninterface Loopback0\n description to\n ip address 2.2.2.2 255.255.255.255\n ip router isis\n!\ninterface GigabitEthernet0/0\n description to\n no ip address\n shutdown\n duplex auto\n speed auto\n media-type rj45\n!\ninterface GigabitEthernet0/1\n description to GigabitEthernet0/1.V1\n ip address 23.1.2.2 255.255.255.0\n ip router isis\n duplex auto\n speed auto\n media-type rj45\n!\ninterface GigabitEthernet0/2\n description to GigabitEthernet0/2.V4\n ip address 23.2.4.2 255.255.255.0\n ip router isis\n duplex auto\n speed auto\n media-type rj45\n!\ninterface GigabitEthernet0/3\n description to\n no ip address\n shutdown\n duplex auto\n speed auto\n media-type rj45\n!\nrouter ospf 1\n!\nrouter isis\n mpls ldp autoconfig\n mpls traffic-eng router-id Loopback0\n mpls traffic-eng level-2\n net 49.0001.0000.0000.000b.00\n is-type level-2-only\n metric-style wide level-2\n log-adjacency-changes\n!\nip forward-protocol nd\n!\n!\nno ip http server\nno ip http secure-server\nip ssh server algorithm authentication password\n!\nipv6 ioam timestamp\n!\n!\n!\ncontrol-plane\n!\nbanner exec ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\nbanner incoming ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\nbanner login ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\n!\nline con 0\n exec-timeout 0 0\n password cisco\nline aux 0\nline vty 0 4\n exec-timeout 720 0\n password cisco\n login local\n transport input telnet ssh\n!\nno scheduler allocate\n!\nend","image_definition":"iosv-159-3-m3","tags":[],"interfaces":[{"id":"i0","label":"Loopback0","type":"loopback"},{"id":"i1","slot":0,"label":"GigabitEthernet0/0","type":"physical"},{"id":"i2","slot":1,"label":"GigabitEthernet0/1","type":"physical"},{"id":"i3","slot":2,"label":"GigabitEthernet0/2","type":"physical"},{"id":"i4","slot":3,"label":"GigabitEthernet0/3","type":"physical"}]},{"id":"n12","label":"V3","node_definition":"iosv","x":-450,"y":500,"configuration":"Building configuration...\n\nCurrent configuration : 3812 bytes\n!\n! Last configuration change at 20:34:57 UTC Thu Feb 10 2022\n!\nversion 15.9\nservice timestamps debug datetime msec\nservice timestamps log datetime msec\nno service password-encryption\n!\nhostname v3\n!\nboot-start-marker\nboot-end-marker\n!\n!\nno logging console\nenable secret 4 tnhtc92DXBhelxjYk8LWJrPV36S2i4ntXrpb4RFmfqY\nenable password cisco\n!\nno aaa new-model\n!\n!\n!\nmmi polling-interval 60\nno mmi auto-configure\nno mmi pvc\nmmi snmp-timeout 180\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\nno ip domain lookup\nip domain name virl.info\nip cef\nno ipv6 cef\n!\nmultilink bundle-name authenticated\nmpls label range 3000 3999\n!\n!\n!\n!\nusername cisco privilege 15 secret 9 $9$Zx3dC4Ifq2dUh7$mAK7Ir.iEzQ9gIsTH8lxWdX9LQKL2gzeKoQ2bIM655k\n!\nredundancy\n!\nno cdp run\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\ninterface Loopback0\n description to\n ip address 3.3.3.3 255.255.255.255\n ip router isis\n!\ninterface GigabitEthernet0/0\n description to\n no ip address\n shutdown\n duplex auto\n speed auto\n media-type rj45\n!\ninterface GigabitEthernet0/1\n description to GigabitEthernet0/1.V4\n ip address 23.3.4.3 255.255.255.0\n ip router isis\n duplex auto\n speed auto\n media-type rj45\n!\ninterface GigabitEthernet0/2\n description to GigabitEthernet0/2.V1\n ip address 23.1.3.3 255.255.255.0\n ip router isis\n duplex auto\n speed auto\n media-type rj45\n!\ninterface GigabitEthernet0/3\n description to\n no ip address\n shutdown\n duplex auto\n speed auto\n media-type rj45\n!\nrouter ospf 1\n!\nrouter isis\n mpls ldp autoconfig\n mpls traffic-eng router-id Loopback0\n mpls traffic-eng level-2\n net 49.0001.0000.0000.000c.00\n is-type level-2-only\n metric-style wide level-2\n log-adjacency-changes\n!\nip forward-protocol nd\n!\n!\nno ip http server\nno ip http secure-server\nip ssh server algorithm authentication password\n!\nipv6 ioam timestamp\n!\n!\n!\ncontrol-plane\n!\nbanner exec ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\nbanner incoming ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\nbanner login ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\n!\nline con 0\n exec-timeout 0 0\n password cisco\nline aux 0\nline vty 0 4\n exec-timeout 720 0\n password cisco\n login local\n transport input telnet ssh\n!\nno scheduler allocate\n!\nend","image_definition":"iosv-159-3-m3","tags":[],"interfaces":[{"id":"i0","label":"Loopback0","type":"loopback"},{"id":"i1","slot":0,"label":"GigabitEthernet0/0","type":"physical"},{"id":"i2","slot":1,"label":"GigabitEthernet0/1","type":"physical"},{"id":"i3","slot":2,"label":"GigabitEthernet0/2","type":"physical"},{"id":"i4","slot":3,"label":"GigabitEthernet0/3","type":"physical"}]},{"id":"n13","label":"V4","node_definition":"iosv","x":-300,"y":400,"configuration":"Building configuration...\n\nCurrent configuration : 4382 bytes\n!\n! Last configuration change at 20:34:53 UTC Thu Feb 10 2022\n!\nversion 15.9\nservice timestamps debug datetime msec\nservice timestamps log datetime msec\nno service password-encryption\n!\nhostname v4\n!\nboot-start-marker\nboot-end-marker\n!\n!\nno logging console\nenable secret 4 tnhtc92DXBhelxjYk8LWJrPV36S2i4ntXrpb4RFmfqY\nenable password cisco\n!\nno aaa new-model\n!\n!\n!\nmmi polling-interval 60\nno mmi auto-configure\nno mmi pvc\nmmi snmp-timeout 180\n!\n!\n!\n!\n!\n!\n!\n!\nip vrf C\n rd 200:1\n route-target export 200:1\n route-target import 200:1\n!\n!\n!\n!\nno ip domain lookup\nip domain name virl.info\nip cef\nno ipv6 cef\n!\nmultilink bundle-name authenticated\nmpls label range 4000 4999\n!\n!\n!\n!\nusername cisco privilege 15 secret 9 $9$NJs2VurW2Jww3N$eoTR3It4MB8p2/c2gPdzsrDemu8SyJagKNvFC2yGLy2\n!\nredundancy\n!\nno cdp run\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\ninterface Loopback0\n description to\n ip address 4.4.4.4 255.255.255.255\n ip router isis\n!\ninterface GigabitEthernet0/0\n description to GigabitEthernet0/0.C22\n ip vrf forwarding C\n ip address 23.4.22.4 255.255.255.0\n duplex auto\n speed auto\n media-type rj45\n mpls bgp forwarding\n!\ninterface GigabitEthernet0/1\n description to GigabitEthernet0/1.V3\n ip address 23.3.4.4 255.255.255.0\n ip router isis\n duplex auto\n speed auto\n media-type rj45\n!\ninterface GigabitEthernet0/2\n description to GigabitEthernet0/2.V2\n ip address 23.2.4.4 255.255.255.0\n ip router isis\n duplex auto\n speed auto\n media-type rj45\n!\ninterface GigabitEthernet0/3\n description to\n no ip address\n shutdown\n duplex auto\n speed auto\n media-type rj45\n!\nrouter ospf 1\n!\nrouter isis\n mpls ldp autoconfig\n mpls traffic-eng router-id Loopback0\n mpls traffic-eng level-2\n net 49.0001.0000.0000.000d.00\n is-type level-2-only\n metric-style wide level-2\n log-adjacency-changes\n!\nrouter bgp 200\n bgp log-neighbor-changes\n neighbor 1.1.1.1 remote-as 200\n neighbor 1.1.1.1 update-source Loopback0\n !\n address-family vpnv4\n  neighbor 1.1.1.1 activate\n  neighbor 1.1.1.1 send-community extended\n exit-address-family\n !\n address-family ipv4 vrf C\n  neighbor 23.4.22.22 remote-as 100\n  neighbor 23.4.22.22 activate\n  neighbor 23.4.22.22 as-override\n  neighbor 23.4.22.22 send-label\n exit-address-family\n!\nip forward-protocol nd\n!\n!\nno ip http server\nno ip http secure-server\nip ssh server algorithm authentication password\n!\nipv6 ioam timestamp\n!\n!\n!\ncontrol-plane\n!\nbanner exec ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\nbanner incoming ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\nbanner login ^CC\n**************************************************************************\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\n* education. IOSv is provided as-is and is not supported by Cisco's      *\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\n* of the IOSv Software or Documentation to any third party for any       *\n* purposes is expressly prohibited except as otherwise authorized by     *\n* Cisco in writing.                                                      *\n**************************************************************************^C\n!\nline con 0\n exec-timeout 0 0\n password cisco\nline aux 0\nline vty 0 4\n exec-timeout 720 0\n password cisco\n login local\n transport input telnet ssh\n!\nno scheduler allocate\n!\nend","image_definition":"iosv-159-3-m3","tags":[],"interfaces":[{"id":"i0","label":"Loopback0","type":"loopback"},{"id":"i1","slot":0,"label":"GigabitEthernet0/0","type":"physical"},{"id":"i2","slot":1,"label":"GigabitEthernet0/1","type":"physical"},{"id":"i3","slot":2,"label":"GigabitEthernet0/2","type":"physical"},{"id":"i4","slot":3,"label":"GigabitEthernet0/3","type":"physical"}]},{"id":"n14","label":"T100","node_definition":"iosxrv","x":-750,"y":-350,"configuration":"","image_definition":"iosxrv-6-3-1","tags":[],"interfaces":[{"id":"i0","label":"Loopback0","type":"loopback"},{"id":"i1","slot":0,"label":"MgmtEth0/0/CPU0/0","type":"physical"},{"id":"i2","slot":1,"label":"GigabitEthernet0/0/0/0","type":"physical"},{"id":"i3","slot":2,"label":"GigabitEthernet0/0/0/1","type":"physical"},{"id":"i4","slot":3,"label":"GigabitEthernet0/0/0/2","type":"physical"}]},{"id":"n15","label":"T200","node_definition":"iosxrv","x":0,"y":-350,"configuration":"","image_definition":"iosxrv-6-3-1","tags":[],"interfaces":[{"id":"i0","label":"Loopback0","type":"loopback"},{"id":"i1","slot":0,"label":"MgmtEth0/0/CPU0/0","type":"physical"},{"id":"i2","slot":1,"label":"GigabitEthernet0/0/0/0","type":"physical"},{"id":"i3","slot":2,"label":"GigabitEthernet0/0/0/1","type":"physical"},{"id":"i4","slot":3,"label":"GigabitEthernet0/0/0/2","type":"physical"}]}],"links":[{"id":"l0","i1":"i1","n1":"n2","i2":"i1","n2":"n3"},{"id":"l1","i1":"i2","n1":"n3","i2":"i2","n2":"n4"},{"id":"l2","i1":"i1","n1":"n0","i2":"i2","n2":"n2"},{"id":"l3","i1":"i1","n1":"n1","i2":"i3","n2":"n2"},{"id":"l4","i1":"i1","n1":"n7","i2":"i1","n2":"n8"},{"id":"l5","i1":"i2","n1":"n8","i2":"i2","n2":"n9"},{"id":"l6","i1":"i1","n1":"n5","i2":"i2","n2":"n7"},{"id":"l7","i1":"i1","n1":"n6","i2":"i3","n2":"n7"},{"id":"l8","i1":"i1","n1":"n4","i2":"i1","n2":"n10"},{"id":"l9","i1":"i1","n1":"n9","i2":"i1","n2":"n13"},{"id":"l10","i1":"i2","n1":"n10","i2":"i2","n2":"n11"},{"id":"l11","i1":"i3","n1":"n10","i2":"i3","n2":"n12"},{"id":"l12","i1":"i3","n1":"n11","i2":"i3","n2":"n13"},{"id":"l13","i1":"i2","n1":"n13","i2":"i2","n2":"n12"},{"id":"l15","i1":"i3","n1":"n15","i2":"i2","n2":"n5"},{"id":"l14","i1":"i3","n1":"n14","i2":"i2","n2":"n0"}]}
+    </article>
+    <!-- license -->
+    
+        <div class="license-wrapper">
+            <p>Author：<a href="https://dbnservers.net">Martin</a>
+            <p>Link：<a href="https://dbnservers.net/uncategorized/">https://dbnservers.net/uncategorized/</a>
+            <p>Publish date：<a href="https://dbnservers.net/uncategorized/">March 3rd 2022, 4:55:53 pm</a>
+            <p>Update date：<a href="https://dbnservers.net/uncategorized/">March 3rd 2022, 4:55:53 pm</a>
+            <p>License：creative commons<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/"> 4.0 </a></p>
+        </div>
+    
+    <!-- paginator -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/network/csc-with-mpls/" title="CSC with MPLS">
+                    <div class="prevTitle">CSC with MPLS</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- comment -->
+    
+        <div class="post-comment">
+            <!-- 来必力 City 版安装代码 -->
+
+
+            
+
+            
+
+            
+
+            <!-- utteranc评论 -->
+
+
+            <!-- partial('_partial/comment/changyan') -->
+            <!--PC版-->
+
+
+            
+            
+
+        </div>
+    
+    <!-- timeliness note -->
+    <!-- idea from: https://hexo.fluid-dev.com/posts/hexo-injector/#%E6%96%87%E7%AB%A0%E6%97%B6%E6%95%88%E6%80%A7%E6%8F%90%E7%A4%BA -->
+    
+    <!-- Mathjax -->
+    
+</main>
+
+                <!-- profile -->
+                
+            </div>
+            <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+        <div class="social">
+            
+    
+        
+            
+                <a href="mailto:martyrsmith@gmail.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/martyrsmith" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="https://www.linkedin.com/in/martyrsmith" class="iconfont-archer linkedin" target="_blank" title=linkedin></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+
+
+        </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- website approve for Chinese user -->
+    
+    <!-- 不蒜子  -->
+    
+        <div class="busuanzi-container">
+            
+             
+                <span id="busuanzi_container_site_pv">Views: <span id="busuanzi_value_site_pv"></span></span>
+            
+        </div>
+    	
+</footer>
+
+        </div>
+        <!-- toc -->
+        
+            <div class="toc-wrapper toc-wrapper-loding" style=
+
+
+
+
+
+
+
+    top:50vh;
+
+>
+                <div class="toc-catalog">
+                    <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+                </div>
+                
+            </div>
+        
+        <!-- sidebar -->
+        <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Topics</span></li>
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Timeline</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tags</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="network">
+            <span class="iconfont-archer">&#xe60a;</span>
+            network
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="blog">
+            <span class="iconfont-archer">&#xe60a;</span>
+            blog
+        </span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+
+        <div class="sidebar-panel-archives">
+    <!-- 在 ejs 中将 archive 按照时间排序 -->
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 6
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+        
+            
+            
+            <div class="archive-year"> 2022 </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/03</span>
+            <a class="archive-post-title" href="/uncategorized/">[Untitled Post]</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/02</span>
+            <a class="archive-post-title" href="/network/csc-with-mpls/">CSC with MPLS</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> 2021 </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/05</span>
+            <a class="archive-post-title" href="/network/mp-bgp-address-families/">MP-BGP Address Families</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/04</span>
+            <a class="archive-post-title" href="/network/cisco-devnet-virtual-lab/">Cisco Devnet Virtual Lab</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/02</span>
+            <a class="archive-post-title" href="/network/bgp-with-frr/">BGP with FRR</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/22</span>
+            <a class="archive-post-title" href="/blog/how-it-s-made/">How it's made</a>
+        </li>
+    
+    </div>
+</div>
+
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+        
+            <span class="sidebar-tag-name" data-tags="frr">
+                <span class="iconfont-archer">&#xe606;</span>
+                frr
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="bgp">
+                <span class="iconfont-archer">&#xe606;</span>
+                bgp
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="mpbgp">
+                <span class="iconfont-archer">&#xe606;</span>
+                mpbgp
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="ubuntu">
+                <span class="iconfont-archer">&#xe606;</span>
+                ubuntu
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="cisco">
+                <span class="iconfont-archer">&#xe606;</span>
+                cisco
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="mpls">
+                <span class="iconfont-archer">&#xe606;</span>
+                mpls
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="ospf">
+                <span class="iconfont-archer">&#xe606;</span>
+                ospf
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="isis">
+                <span class="iconfont-archer">&#xe606;</span>
+                isis
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="hexo">
+                <span class="iconfont-archer">&#xe606;</span>
+                hexo
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="github">
+                <span class="iconfont-archer">&#xe606;</span>
+                github
+            </span>
+        
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+        缺失模块，请参考主题文档进行安装配置：https://github.com/fi3ework/hexo-theme-archer#%E5%AE%89%E8%A3%85%E4%B8%BB%E9%A2%98
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+
+    </div>
+</div>
+
+        <!-- site-meta -->
+        <script>
+    var siteMeta = {
+        root: "/",
+        author: "Martin"
+    }
+</script>
+
+        <!-- import experimental options here -->
+        <!-- Custom Font -->
+
+
+        <!-- main func -->
+        <script src="/scripts/main.js?v=20210823"></script>
+        <!-- dark mode -->
+        <script src="/scripts/dark.js?v=20210823"></script>
+        <!-- fancybox -->
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
+        <!-- algolia -->
+        
+        <!-- busuanzi -->
+        
+            <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+        
+        <!-- CNZZ -->
+        
+        <!-- async load share.js -->
+        
+            <script src="/scripts/share.js?v=20210823" async></script>
+        
+        <!-- mermaid -->
+        
+    </body>
+</html>
