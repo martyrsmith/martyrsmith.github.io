@@ -20,7 +20,7 @@ This post was inspired by:
 * [LabMinutes# SP0017 - Cisco MPLS TE Basic Traffic Engineering (Part 1)](https://www.youtube.com/watch?v=Ke_5zHaRQIg&ab_channel=LabMinutes)
 * [NANOG - MPLS Traffic Engineering Presentation](https://archive.nanog.org/meetings/nanog37/presentations/pete-templin.pdf)
 
-Cisco Modeling Labs [topology file](csc-mpls-lab/MPLS-CSC.yaml).
+Cisco Modeling Labs [topology file](csc-mpls-lab/MPLS-CSC.yaml.zip).
 
 ## Diagram
 ![diagram](csc-mpls-lab/csc-mpls-lab.svg)
