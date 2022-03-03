@@ -1,5 +1,5 @@
 ---
-title: React tips
+title: React notes
 date: 2021-12-26 9:00:00
 tags:
 - react
@@ -8,7 +8,7 @@ header_image: /intro/index-bg.jpg
 categories:
   - frontend
 ---
-This post explores setting up a React website.
+This post has simple notes learned while setting up a React website.
 <!-- more -->
 
 Examples from [Tutorial: Intro to React](https://reactjs.org/tutorial/tutorial.html)
@@ -30,7 +30,7 @@ let | block | yes
 const | block | no
 
 ## Loop over Array
-Useful to create tables and lists. 
+Useful to create tables and lists.
 ```
 return <div>
     {user.map((person, index) => (
@@ -49,7 +49,7 @@ onClick={() => console.log('click')}
 ```
 
 ## Functions
-Simplier way to write compoents with only a render compoent and no state. Uses `props.x` format. 
+Simplier way to write compoents with only a render compoent and no state. Uses `props.x` format.
 ```
 function Square(props) {
   return (
@@ -63,7 +63,7 @@ function Square(props) {
 ```
 
 ## Class
-Uses `this.props.x` format. 
+Uses `this.props.x` format.
 
 ```
 class Board extends React.Component {
@@ -81,7 +81,7 @@ class Board extends React.Component {
 ```
   renderSquare(i) {
     return (
-      <Square 
+      <Square
         squareValue={this.props.squares[i]}
         onSquareClick={() => this.props.onSquareClick(i)}
       />
@@ -90,7 +90,7 @@ class Board extends React.Component {
 ```
 
 ## Constructor (inside class)
-Used to save state. 
+Used to save state.
 ```
   constructor(props) {
     super(props)
@@ -111,7 +111,7 @@ Used to save state.
             blah
     }
 ```
-Or experimental 
+Or experimental
 ```
 handleClick = () => {
     console.log('this is:', this);
