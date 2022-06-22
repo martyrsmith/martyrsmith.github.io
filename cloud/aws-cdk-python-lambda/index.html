@@ -19,18 +19,27 @@
         <meta name="keywords" content="dbn,diamondblade,dbn servers">
     
     <meta name="description" content="">
-    <meta property="og:type" content="website">
-<meta property="og:title" content="DBN">
-<meta property="og:url" content="https://dbnservers.net/categories/frontend/index.html">
+    <meta name="description" content="Quick walk-though on how to publish a Python lambda that uses libraries not included in native Python container.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AWS CDK - Python Lambda">
+<meta property="og:url" content="https://dbnservers.net/cloud/aws-cdk-python-lambda/index.html">
 <meta property="og:site_name" content="DBN">
+<meta property="og:description" content="Quick walk-though on how to publish a Python lambda that uses libraries not included in native Python container.">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-06-22T13:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-22T23:25:06.162Z">
 <meta property="article:author" content="Martin">
+<meta property="article:tag" content="aws">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="github">
+<meta property="article:tag" content="node">
+<meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/assets/favicon.ico">
     
-    <title>DiamondBlade Network</title>
+    <title>AWS CDK - Python Lambda · DiamondBlade Network</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -217,6 +226,8 @@
         }
     </script>
     
+        <body class="post-body">
+    
         <!-- header -->
         <header class="header header-mobile">
     <!-- top read progress line -->
@@ -246,6 +257,17 @@
     </div>
     <!-- toggle banner for post layout -->
     
+        
+            <div class="banner">
+        
+            <div class="blog-title header-element">
+                <a href="/">DBN</a>
+            </div>
+            <div class="post-title header-element">
+                <a href="#" class="post-name">AWS CDK - Python Lambda</a>
+            </div>
+        </div>
+    
 </header>
 
         <!-- fixed footer -->
@@ -272,24 +294,87 @@
 
 
 
+    height:50vh;
+
 ">
     
     <!-- 主页  -->
+    
+        
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/index-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+                AWS CDK - Python Lambda
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+                
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页 meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="aws">aws</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="python">python</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="github">github</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="node">node</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="docker">docker</a>
+    
+</div>
+
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count word-count">538</span>Reading time: <span class="post-count reading-time">3 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <!-- 撰写日期 -->
+                    <span class="iconfont-archer post-intro-calander">&#xe676;</span>
+                    <span class="post-intro-time">2022/06/22</span>
+                    <!-- busuanzi -->
+                    
+                        <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                            <span class="iconfont-archer post-intro-busuanzi">&#xe602;</span>
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    
+                    <!-- 文章分享 -->
+                    <span class="share-wrapper">
+                        <span class="iconfont-archer share-icon">&#xe71d;</span>
+                        <span class="share-text">Share</span>
+                        <ul class="share-list">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -419,47 +504,114 @@
 
             <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
             <div class="container container-unloaded">
-                <main class="main index-page">
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/frontend/react-notes/">
-                
-                <span class="abstract-title-text">React Notes</span>
-            </a>
-            <div class="abstract-content">
-                <p>This post contains notes learned while setting up a tutorial React website.</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/06/22">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/12/26</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="react">react</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="javascript">javascript</a>
-    
-</div>
+                <main class="main post-page">
+    <article class="article-entry">
+        <p>Quick walk-though on how to publish a Python lambda that uses libraries not included in native Python container.</p>
+<span id="more"></span>
 
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
+<p>Read on to see the new <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/cdk/api/v2/docs/aws-lambda-python-alpha-readme.html#python-function">AWS Lambda Python module</a> in action.</p>
+<p>The example below uses TypeScript to describe a cloud environment and upload a Python lambda function. Why not use the Python AWS CDK? We certainly could, but I prefer TypeScript as it has more documentation examples online.</p>
+<h2 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h2><p>Follow all instructions on <a target="_blank" rel="noopener" href="https://cdkworkshop.com/">cdkworkshop</a> to setup AWS CLI, AWS CDK and NodeJS.</p>
+<p>Install NPM with NVM. <a target="_blank" rel="noopener" href="https://nodesource.com/blog/installing-node-js-tutorial-using-nvm-on-mac-os-x-and-ubuntu/">Blog post here</a>.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash</span><br><span class="line">nvm install node</span><br><span class="line">nvm use node</span><br></pre></td></tr></table></figure>
+
+<p>Install AWS CDK v2. <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/cdk/v2/guide/getting_started.html">Full documentation here</a>.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install aws-cdk-lib</span><br></pre></td></tr></table></figure>
+
+<p>Setup AWS Account and user. <a target="_blank" rel="noopener" href="https://cdkworkshop.com/15-prerequisites/200-account.html">Guide here</a>.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aws configure</span><br></pre></td></tr></table></figure>
+
+<p>Install Docker. <a target="_blank" rel="noopener" href="https://docs.docker.com/desktop/mac/install/">Full documentation here</a>.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install docker</span><br></pre></td></tr></table></figure>
+
+<h2 id="Start"><a href="#Start" class="headerlink" title="Start"></a>Start</h2><p>Create new directory and initialize with CDK.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir ts_cdk_with_python_lambda</span><br><span class="line">cd ts_cdk_with_python_lambda</span><br><span class="line">cdk init app --language typescript</span><br></pre></td></tr></table></figure>
+
+<p>Install <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/@aws-cdk/aws-lambda-python-alpha">Amazon Lambda Python Library</a>.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i @aws-cdk/aws-lambda-python-alpha</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<p>Open <code>lib/ts_cdk_with_python_lambda-stack.ts</code> and add a new Python Function and associated API Gateway.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Stack</span>, <span class="title class_">StackProps</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;aws-cdk-lib&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Construct</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;constructs&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">PythonFunction</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@aws-cdk/aws-lambda-python-alpha&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; aws_apigateway <span class="keyword">as</span> apigw, aws_lambda <span class="keyword">as</span> lambda &#125; <span class="keyword">from</span> <span class="string">&quot;aws-cdk-lib&quot;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> <span class="title class_">TsCdkWithPythonLambdaStack</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Stack</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">scope: Construct, id: string, props?: StackProps</span>) &#123;</span><br><span class="line">    <span class="variable language_">super</span>(scope, id, props);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Python Lambda Function</span></span><br><span class="line">    <span class="keyword">const</span> myPython = <span class="keyword">new</span> <span class="title class_">PythonFunction</span>(<span class="variable language_">this</span>, <span class="string">&#x27;MyPythonHandler&#x27;</span>, &#123;</span><br><span class="line">      <span class="attr">entry</span>: <span class="string">&#x27;./lambda_python&#x27;</span>,  <span class="comment">// Folder containing lambda</span></span><br><span class="line">      <span class="attr">runtime</span>: lambda.<span class="property">Runtime</span>.<span class="property">PYTHON_3_9</span>,  <span class="comment">// Python version</span></span><br><span class="line">      <span class="attr">index</span>: <span class="string">&#x27;main.py&#x27;</span>,  <span class="comment">// Name of Python file</span></span><br><span class="line">      <span class="attr">handler</span>: <span class="string">&#x27;handler&#x27;</span>  <span class="comment">// Name of method</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// API Gateway</span></span><br><span class="line">    <span class="keyword">new</span> apigw.<span class="title class_">LambdaRestApi</span>(<span class="variable language_">this</span>, <span class="string">&#x27;MyPythonEndpoint&#x27;</span>, &#123;</span><br><span class="line">      <span class="attr">handler</span>: myPython</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/cdk/api/v2/docs/aws-lambda-python-alpha-readme.html#python-function">Full documentation</a> on PythonFunction.</p>
+<p>Create new file <code>lambda_python/main.py</code> which will contain our lambda function. Notice how this file uses the <code>requests</code> library to make a HTTP GET request to an external web service.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">handler</span>(<span class="params">event, context</span>):</span><br><span class="line">    response = requests.get(<span class="string">&quot;https://api.ipify.org?format=json&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(response.text)</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="string">&#x27;statusCode&#x27;</span>: <span class="number">200</span>,</span><br><span class="line">        <span class="string">&#x27;headers&#x27;</span>: &#123;</span><br><span class="line">            <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;text/plain&#x27;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="string">&#x27;body&#x27;</span>: <span class="string">f&quot;You have hit <span class="subst">&#123;event[<span class="string">&#x27;path&#x27;</span>]&#125;</span>\n&quot;</span></span><br><span class="line">                <span class="string">f&quot;IP of lambda server: <span class="subst">&#123;response.json().get(<span class="string">&#x27;ip&#x27;</span>, <span class="literal">None</span>)&#125;</span>&quot;</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>Create new requirements file <code>lambda_python/requirements.txt</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">requests==2.28.0</span><br></pre></td></tr></table></figure>
+
+<p>Bootstrap your AWS account (if first time running AWS CDK). Then deploy!</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cdk bootstrap</span><br><span class="line">cdk diff</span><br><span class="line">cdk deploy</span><br></pre></td></tr></table></figure>
+
+<p>Answer <yes> to prompts. If successful, you should see output with your new API URL.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Outputs:</span><br><span class="line">TsCdkWithPythonLambdaStack.MyPythonEndpointABC = https://xyz.execute-api.us-west-2.amazonaws.com/prod/</span><br></pre></td></tr></table></figure>
+
+<p>Open the API Gateway URL in a browser and check for text output similar to below:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">You have hit /</span><br><span class="line">IP of lambda server: x.x.x.x</span><br></pre></td></tr></table></figure>
+
+<p>Congratulations on using the new AWS Lambda Python module!</p>
+<h2 id="Bonus"><a href="#Bonus" class="headerlink" title="Bonus"></a>Bonus</h2><p>Upload to GitHub.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;python lambda&quot;</span></span><br><span class="line">git remote add origin https://github.com/&lt;user&gt;/ts_cdk_with_python_lambda.git</span><br><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
+
+<p>GitHub <a target="_blank" rel="noopener" href="https://github.com/martyrsmith/ts_cdk_with_python_lambda">ts_cdk_with_python_lambda</a> repo.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://cdkworkshop.com/">cdkworkshop</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/cdk/api/v2/docs/aws-lambda-python-alpha-readme.html">@aws-cdk&#x2F;aws-lambda-python-alpha module</a></li>
+</ul>
+
+    </article>
+    <!-- license -->
     
-    <!-- paginator  -->
+        <div class="license-wrapper">
+            <p>Author：<a href="https://dbnservers.net">Martin</a>
+            <p>Link：<a href="https://dbnservers.net/cloud/aws-cdk-python-lambda/">https://dbnservers.net/cloud/aws-cdk-python-lambda/</a>
+            <p>Publish date：<a href="https://dbnservers.net/cloud/aws-cdk-python-lambda/">June 22nd 2022, 1:00:00 pm</a>
+            <p>Update date：<a href="https://dbnservers.net/cloud/aws-cdk-python-lambda/">June 22nd 2022, 11:25:06 pm</a>
+            <p>License：creative commons<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/"> 4.0 </a></p>
+        </div>
+    
+    <!-- paginator -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/network/csc-with-mpls/" title="CSC with MPLS">
+                    <div class="prevTitle">CSC with MPLS</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- comment -->
+    
+        <div class="post-comment">
+            <!-- 来必力 City 版安装代码 -->
+
+
+            
+
+            
+
+            
+
+            <!-- utteranc评论 -->
+
+
+            <!-- partial('_partial/comment/changyan') -->
+            <!--PC版-->
+
+
+            
+            
+
+        </div>
+    
+    <!-- timeliness note -->
+    <!-- idea from: https://hexo.fluid-dev.com/posts/hexo-injector/#%E6%96%87%E7%AB%A0%E6%97%B6%E6%95%88%E6%80%A7%E6%8F%90%E7%A4%BA -->
+    
+    <!-- Mathjax -->
     
 </main>
 
@@ -547,6 +699,23 @@
 
         </div>
         <!-- toc -->
+        
+            <div class="toc-wrapper toc-wrapper-loding" style=
+
+
+
+
+
+
+
+    top:50vh;
+
+>
+                <div class="toc-catalog">
+                    <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+                </div>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Prerequisites"><span class="toc-number">1.</span> <span class="toc-text">Prerequisites</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Start"><span class="toc-number">2.</span> <span class="toc-text">Start</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bonus"><span class="toc-number">3.</span> <span class="toc-text">Bonus</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">4.</span> <span class="toc-text">References</span></a></li></ol>
+            </div>
         
         <!-- sidebar -->
         <div class="sidebar sidebar-hide">
@@ -876,6 +1045,8 @@
         <!-- CNZZ -->
         
         <!-- async load share.js -->
+        
+            <script src="/scripts/share.js?v=20210823" async></script>
         
         <!-- mermaid -->
         
