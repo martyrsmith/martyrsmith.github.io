@@ -4,9 +4,9 @@ date: 2022-06-22 13:00:00
 tags:
 - aws
 - python
-- github
-- node
+- typescript
 - docker
+- github
 header_image: /intro/index-bg.jpg
 categories:
   - cloud
