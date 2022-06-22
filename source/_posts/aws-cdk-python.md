@@ -45,7 +45,7 @@ Install Docker. [Full documentation here](https://docs.docker.com/desktop/mac/in
 brew install docker
 ```
 
-## Start
+## Initialize
 
 Create new directory and initialize with CDK.
 ```
@@ -58,6 +58,31 @@ Install [Amazon Lambda Python Library](https://www.npmjs.com/package/@aws-cdk/aw
 ```bash
 npm i @aws-cdk/aws-lambda-python-alpha
 npm install
+```
+
+## Lambda and API Gateway
+
+Create new file `lambda_python/main.py` which will contain our lambda function. Notice how this file uses the `requests` library to make a HTTP GET request to an external web service.
+
+```python
+import requests
+
+def handler(event, context):
+    response = requests.get("https://api.ipify.org?format=json")
+    print(response.text)
+    return {
+        'statusCode': 200,
+        'headers': {
+            'Content-Type': 'text/plain'
+        },
+        'body': f"You have hit {event['path']}\n"
+                f"IP of lambda server: {response.json().get('ip', None)}"
+    }
+```
+
+Create new requirements file `lambda_python/requirements.txt`
+```
+requests==2.28.0
 ```
 
 Open `lib/ts_cdk_with_python_lambda-stack.ts` and add a new Python Function and associated API Gateway.
@@ -93,29 +118,7 @@ export class TsCdkWithPythonLambdaStack extends Stack {
 [Full documentation](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-lambda-python-alpha-readme.html#python-function) on PythonFunction.
 
 
-Create new file `lambda_python/main.py` which will contain our lambda function. Notice how this file uses the `requests` library to make a HTTP GET request to an external web service.
-
-```python
-import requests
-
-def handler(event, context):
-    response = requests.get("https://api.ipify.org?format=json")
-    print(response.text)
-    return {
-        'statusCode': 200,
-        'headers': {
-            'Content-Type': 'text/plain'
-        },
-        'body': f"You have hit {event['path']}\n"
-                f"IP of lambda server: {response.json().get('ip', None)}"
-    }
-```
-
-Create new requirements file `lambda_python/requirements.txt`
-```
-requests==2.28.0
-```
-
+## Deploy
 Bootstrap your AWS account (if first time running AWS CDK). Then deploy!
 ```
 cdk bootstrap
