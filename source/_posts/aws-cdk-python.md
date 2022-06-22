@@ -123,7 +123,7 @@ cdk diff
 cdk deploy
 ```
 
-Answer <yes> to prompts. If successful, you should see output with your new API URL.
+Answer "yes" to prompts. If successful, you should see output with your new API URL.
 ```
 Outputs:
 TsCdkWithPythonLambdaStack.MyPythonEndpointABC = https://xyz.execute-api.us-west-2.amazonaws.com/prod/
